@@ -1,0 +1,2 @@
+# Rakieta "Patriot"
+25.02.1991 amerykańska armia wystrzeliła rakietę "Patiot" w Dharanie w Arabii Saudyjskiej. W wyniku błedu numerycznego zamiast w przeciwników rakieta uderzyła w amerykański barak zabijając 28 żołnierzy i raniąc około 100 kolejnych. Błąd polegał na wielokrotnym powtórzeniu błedu rzędu 0.000000095 z powodu używania 24 bitowego systemu zmiennych a wiec 1/10 sekundy była ucinana. Ostateczny błąd wyniósł 0.34 sekundy ale z powodu dużej prędkości rakiety starczyło to aby mineła cel o pół kilometra.
