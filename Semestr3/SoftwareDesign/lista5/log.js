@@ -37,6 +37,12 @@ async function processByLine() {
     for(let i = 0; i < 3; i++) {
         console.log(elements[i]);
     }
+    return elements;
 }
 
-processByLine();
+async function main(){
+    var res = await processByLine();
+    console.log(res);
+}
+
+main();
