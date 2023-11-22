@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <%= name %>
+        <%= surname %>
+    </div>
+    <div>
+        Subject: <%= subject %>
+    </div>
+    <div>
+        <table border="1">
+        <tr>
+            <% for ( var i=0; i<10; i++ ) { %>
+            <td>
+                Zad <%= i+1 %>
+            </td>
+            <% } %>
+        </tr>
+        <tr>
+            <% for ( var i=0; i<10; i++ ) { %>
+                <td>
+                    <%= taskArr[i] %>
+                </td>
+                <% } %>
+        </tr>
+    </div>
+</body>
+</html>
