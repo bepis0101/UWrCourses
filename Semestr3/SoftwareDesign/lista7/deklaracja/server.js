@@ -11,22 +11,25 @@ app.get('/', (req, res) => {
     res.render('form.ejs', errors = {})
 });
 
-app.post('/print', (req, res) => {
+app.post('/', (req, res) => {
     const {name, surname, subject, tasks} = req.body;
     if(!name.length || !surname.length || !subject.length) {
         res.render('form.ejs', errors = {error: 'Wypełnij wszystkie wymagane pola pola'})
         console.log(errors)
         return;
     }
-
     const taskArr = Array.isArray(tasks) ? tasks.map(Number) : [Number(tasks)];
     console.log(taskArr)
     
-    res.render('print.ejs', {name, surname, subject, taskArr});
+    res.redirect(`/print?name=${name}&surname=${surname}&subject=${subject}&taskArr=${JSON.stringify(taskArr)}`);
+    // TODO: czy da się ukryc wiadomosci przekazywane w query?
 });
 
 app.get('/print', (req, res) => {
-    res.render('print.ejs')
+    var {name, surname, subject, taskArr} = req.query;
+    taskArr = JSON.parse(taskArr);
+    console.log(taskArr)
+    res.render('print.ejs', {name, surname, subject, taskArr})
 });
 const port = 3000;
 app.listen(port, () => console.log(`Server started at port http://localhost:${port}`));
