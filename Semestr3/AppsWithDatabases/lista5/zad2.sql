@@ -11,16 +11,16 @@ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 -- SERIALIZABLE			NIE				NIE						NIE
 
 -- Odczyt brudnych danych --
-DROP TABLE IF EXISTS Test
-GO
+-- DROP TABLE IF EXISTS Test
+-- GO
 
-CREATE TABLE Test (ID INT PRIMARY KEY, Product VARCHAR(50), Pcs INT)
-INSERT INTO Test VALUES(1, 'P1', 13)
-INSERT INTO Test VALUES(2, 'P1', 3)
-INSERT INTO Test VALUES(3, 'P3', 4)
-INSERT INTO Test VALUES(4, 'P4', 6)
-INSERT INTO Test VALUES(5, 'P5', 1)
-GO
+-- CREATE TABLE Test (ID INT PRIMARY KEY, Product VARCHAR(50), Pcs INT)
+-- INSERT INTO Test VALUES(1, 'P1', 13)
+-- INSERT INTO Test VALUES(2, 'P1', 3)
+-- INSERT INTO Test VALUES(3, 'P3', 4)
+-- INSERT INTO Test VALUES(4, 'P4', 6)
+-- INSERT INTO Test VALUES(5, 'P5', 1)
+-- GO
 
 /*
 Sposób dzia³ania: odpalamy w dwóch okienkach SSMS, pierwsz¹ transakcjê wykonujemy normalnie, po czym
@@ -30,14 +30,14 @@ momentu wykonania pierwszej transakcji (i rollbacku), drugie zapytanie wyœwietl
 */
 
 -- Transakcja 1 --
-BEGIN TRAN
-UPDATE Test SET Pcs = 12 WHERE ID = 1
-UPDATE Test SET Pcs = 3  WHERE ID = 4
+-- BEGIN TRAN
+-- UPDATE Test SET Pcs = 12 WHERE ID = 1
+-- UPDATE Test SET Pcs = 3  WHERE ID = 4
 -- czekamy na przyjêcie pieniêdzy od klienta, st¹d delay
-WAITFOR DELAY '00:00:10'
-SELECT * FROM Test -- dane zmieniaja sie, ale rollback je cofa
-ROLLBACK TRANSACTION
-SELECT * FROM Test
+-- WAITFOR DELAY '00:00:10'
+-- SELECT * FROM Test -- dane zmieniaja sie, ale rollback je cofa
+-- ROLLBACK TRANSACTION
+-- SELECT * FROM Test
 
 -- Transakcja 2 --
 -- SELECT * FROM Test
@@ -63,7 +63,7 @@ wyniki.
 -- Transakcja 1
 -- BEGIN TRAN
 -- SELECT * FROM People
--- WAITFOR DELAY '00:00:05'
+-- WAITFOR DELAY '00:00:10'
 -- SELECT * FROM People
 -- ROLLBACK
 -- GO
@@ -75,28 +75,28 @@ wyniki.
 -- GO
 
 -- -- Odczyty fantomów --
--- DROP TABLE IF EXISTS Cars
--- GO
+DROP TABLE IF EXISTS Cars
+GO
 
--- CREATE TABLE Cars (Model VARCHAR(20), Marka VARCHAR(20))
--- INSERT INTO Cars VALUES('Opel',  'Astra')
--- INSERT INTO Cars VALUES('Opel',  'Meriva')
--- INSERT INTO Cars VALUES('Skoda', 'Fabia')
--- INSERT INTO Cars VALUES('Skoda', 'Superb')
--- INSERT INTO Cars VALUES('Skoda', 'Felicia')
--- GO
+CREATE TABLE Cars (Model VARCHAR(20), Marka VARCHAR(20))
+INSERT INTO Cars VALUES('Opel',  'Astra')
+INSERT INTO Cars VALUES('Opel',  'Meriva')
+INSERT INTO Cars VALUES('Skoda', 'Fabia')
+INSERT INTO Cars VALUES('Skoda', 'Superb')
+INSERT INTO Cars VALUES('Skoda', 'Felicia')
+GO
 
 /*
 Sposób dzia³ania jak wy¿ej, jednak przy odczytach zmienia siê liczba odczytywanych danych
 spowodowana dzia³aniem INSERT lub DELETE.
 */
 
--- -- Transakcja 1 --
--- BEGIN TRAN
--- SELECT * FROM Cars
--- WAITFOR DELAY '00:00:05'
--- SELECT * FROM Cars
--- ROLLBACK
+-- Transakcja 1 --
+BEGIN TRAN
+SELECT * FROM Cars
+WAITFOR DELAY '00:00:10'
+SELECT * FROM Cars
+ROLLBACK
 
 -- -- Transakcja 2 --
 -- BEGIN TRAN
