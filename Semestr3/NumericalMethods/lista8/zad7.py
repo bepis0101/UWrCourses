@@ -30,8 +30,8 @@ def moments(t, x, y):
     Mx[n], My[n] = 0, 0
     Mx[n-1], My[n-1] = ux[n-1], uy[n-1]
     for i in range(n-2, -1, -1):
-        Mx[i] = ux[i] - q[i] * Mx[i + 1]
-        My[i] = uy[i] - q[i] * My[i + 1]
+        Mx[i] = ux[i] + q[i] * Mx[i + 1]
+        My[i] = uy[i] + q[i] * My[i + 1]
 
     return Mx, My
 
@@ -68,6 +68,7 @@ t = ts(len(x))
 # print(len(t), len(x), len(y))
 # print(t)
 Mx, My = moments(t, x, y)
+print(Mx, My)
 
 M = 1000
 
