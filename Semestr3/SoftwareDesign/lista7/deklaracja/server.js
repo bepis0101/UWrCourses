@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+// const crypto = require('crypto');
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const {name, surname, subject, tasks} = req.body;
     if(!name.length || !surname.length || !subject.length) {
-        res.render('form.ejs', errors = {error: 'Wypełnij wszystkie wymagane pola pola'})
+        res.render('form.ejs', errors = {error: 'Wypełnij wszystkie wymagane pola'})
         console.log(errors)
         return;
     }

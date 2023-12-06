@@ -21,7 +21,8 @@ snake_direction = (-1, 0)  # Początkowy kierunek ruchu węża
 
 # Dodanie losowych kwadratów na planszę
 for _ in range(numOfObstacles):
-    square = plt.Rectangle((randint(0, width-1), randint(0, height-1)), 1, 1, fc='red')
+    obstacle = (randint(0, width-1), randint(0, height-1))
+    square = plt.Rectangle(obstacle, 1, 1, fc='red')
     ax.add_patch(square)
 
 # Inicjalizacja głowy węża
