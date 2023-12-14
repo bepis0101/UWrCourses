@@ -132,6 +132,8 @@ client.library.command('collMod', 'books', validator=books_schema)
 client.library.command('collMod', 'readers', validator=readers_schema)
 client.library.command('collMod', 'borrowings', validator=borrowings_schema)
 
+## Task 4
+
 # Get the full documents list, sorted in an explicit order, and limited to the middle 2 items
 result = books.find().sort('_id', pymongo.ASCENDING).skip(1).limit(2)
 
