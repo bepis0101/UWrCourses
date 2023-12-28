@@ -62,67 +62,67 @@ def nifss(t, x, y, M):
         nifs3y.append(nifs3(k/M, t, y, My))
     return nifs3x, nifs3y
 
+plt.gca().invert_yaxis()
 
 x, y, t = _unzip(p.N)
 nifs3x, nifs3y = nifss(t, x, y, 500)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
-
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.u)
 nifs3x, nifs3y = nifss(t, x, y, 500)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.m)
 nifs3x, nifs3y = nifss(t, x, y, 500)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.er)
 nifs3x, nifs3y = nifss(t, x, y, 1000)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.ki)
 nifs3x, nifs3y = nifss(t, x, y, 1000)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.i)
 nifs3x, nifs3y = nifss(t, x, y, 2)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.s)
 nifs3x, nifs3y = nifss(t, x, y, 300)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.a)
 nifs3x, nifs3y = nifss(t, x, y, 500)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x,y,t = _unzip(p.su)
 nifs3x, nifs3y = nifss(t, x, y, 1000)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x,y,t = _unzip(p.p)
 nifs3x, nifs3y = nifss(t, x, y, 500)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x,y,t = _unzip(p.er1)
 nifs3x, nifs3y = nifss(t, x, y, 1000)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.dotup)
 nifs3x, nifs3y = nifss(t, x, y, 4)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.dotdown)
 nifs3x, nifs3y = nifss(t, x, y, 4)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.nose)
 nifs3x, nifs3y = nifss(t, x, y, 2)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 x, y, t = _unzip(p.smile)
 nifs3x, nifs3y = nifss(t, x, y, 300)
-plt.plot(x, y, 'o', nifs3x, nifs3y)
+plt.plot(x, y, nifs3x, nifs3y)
 
 im = plt.imread('C:/Users/borys/Desktop/UWr/Semestr3/NumericalMethods/konkurs/napis.png')
 plt.imshow(im)
