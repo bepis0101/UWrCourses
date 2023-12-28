@@ -3,3 +3,4 @@ Semestr3/AdvancedPython/lista8/prywatne.py
 node_modules
 __pycache__
 .vscode
+*.zip
