@@ -20,7 +20,7 @@ export default function Skills({ skill }: SkillsProps) {
     <div className="skillZ">
       <h2>Skills</h2>
       <ul>
-        {skill.skill.map(({ name, level }) => {
+        {skill.map(({ name, level }) => {
           return (
             <li className="skill">
               <div>{name}</div>

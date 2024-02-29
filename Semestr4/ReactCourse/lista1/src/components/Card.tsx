@@ -29,7 +29,7 @@ export default function Card({
       <Info name={info.name} number={info.number} email={info.email} />
       <Position position={position} />
       <AboutMe text={aboutMe} />
-      <Skills skill={skill} />
+      <Skills skill={skill.skill} />
     </div>
   );
 }
