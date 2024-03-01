@@ -20,8 +20,8 @@ export default function App() {
         }}
         position="Software Developer"
         aboutMe={text}
-        skill={{
-          skill: [
+        skill={
+          [
             {
               name: "C++",
               level: 5,
@@ -30,8 +30,8 @@ export default function App() {
               name: "Python",
               level: 3,
             },
-          ],
-        }}
+          ]        
+        }
       />
     </div>
   );

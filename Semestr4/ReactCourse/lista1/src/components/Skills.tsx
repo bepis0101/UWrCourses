@@ -1,10 +1,12 @@
 import React from "react";
 
+type Skill = {
+  name: string;
+  level: number;
+};
+
 export interface SkillsProps {
-  skill: {
-    name: string;
-    level: number;
-  }[];
+  skill: Skill[];
 }
 
 function stars(n: number): string {

@@ -8,13 +8,13 @@ import AboutMe from "./AboutMe";
 import Skills from "./Skills";
 import { SkillsProps } from "./Skills";
 
-interface CardProps {
+type CardProps = {
   image: ImageProps;
   info: InfoProps;
   position: string;
   aboutMe: string;
-  skill: SkillsProps;
-}
+  // skill: SkillsProps;
+} & SkillsProps
 
 export default function Card({
   image,
@@ -29,7 +29,7 @@ export default function Card({
       <Info name={info.name} number={info.number} email={info.email} />
       <Position position={position} />
       <AboutMe text={aboutMe} />
-      <Skills skill={skill.skill} />
+      <Skills skill={skill} />
     </div>
   );
 }
