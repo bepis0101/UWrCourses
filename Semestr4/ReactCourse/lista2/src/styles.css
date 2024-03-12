@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgb(63, 247, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 247, 251, 1) 0%,
+    rgba(70, 184, 252, 1) 73%
+  );
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+.container h1 {
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 50px;
+  color: rebeccapurple;
+  text-shadow: rgba(102, 51, 153, 0.308) 5px 5px;
+  padding: 20px;
+  padding-bottom: 50px;
+}
+.todo-list {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-list ul {
+  list-style-type: none;
+  width: 80%;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  height: 20px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.delete {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.delete svg:hover {
+  transform: scale(1.25);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.completed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  height: 20px;
+  color: white;
+  background-color: #00ab66;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.searches {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: rgba(102, 51, 153, 0.308) 1px solid;
+  width: 25dvw;
+  height: 20px;
+}
+.search form button {
+  padding: 10px;
+  height: 40px;
+  width: auto;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  outline: rgba(102, 51, 153, 0.308) 1px solid;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.search form button:hover {
+  background-color: rgba(102, 51, 153, 0.308);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.add form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: rgba(102, 51, 153, 0.308) 1px solid;
+  width: 25dvw;
+  height: 20px;
+}
+.add form button {
+  padding: 10px;
+  height: 40px;
+  width: auto;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  outline: rgba(102, 51, 153, 0.308) 1px solid;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.add form button:hover {
+  background-color: rgba(102, 51, 153, 0.308);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 10px;
+  height: 40px;
+  width: auto;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  outline: rgba(102, 51, 153, 0.308) 1px solid;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.filters button:hover {
+  background-color: rgba(102, 51, 153, 0.308);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+#active:hover {
+  color: white;
+  transition: all 0.2s ease-in-out;
+  background-color: red;
+}
+
+#compl:hover {
+  color: white;
+  transition: all 0.2s ease-in-out;
+  background-color: #00ab66;
+}
