@@ -1,0 +1,14 @@
+C:\Users\borys\source\repos\Lista1\bin\Debug\net8.0\Lista1.exe
+C:\Users\borys\source\repos\Lista1\bin\Debug\net8.0\Lista1.deps.json
+C:\Users\borys\source\repos\Lista1\bin\Debug\net8.0\Lista1.runtimeconfig.json
+C:\Users\borys\source\repos\Lista1\bin\Debug\net8.0\Lista1.dll
+C:\Users\borys\source\repos\Lista1\bin\Debug\net8.0\Lista1.pdb
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.AssemblyInfoInputs.cache
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.AssemblyInfo.cs
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.csproj.CoreCompileInputs.cache
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.dll
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\refint\Lista1.dll
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.pdb
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\Lista1.genruntimeconfig.cache
+C:\Users\borys\source\repos\Lista1\obj\Debug\net8.0\ref\Lista1.dll
