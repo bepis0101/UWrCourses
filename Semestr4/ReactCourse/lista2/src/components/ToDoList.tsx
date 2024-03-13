@@ -77,9 +77,14 @@ export function ToDoList() {
                   setItems(Items.filter((i) => i !== item));
                 }}
                 onDone={() => {
-                  setItems(
-                    Items.map((i) => (i === item ? { ...i, done: !i.done } : i))
-                  );
+                  const updatedItems = Items.map((i) => {
+                    if (i === item) {
+                      const newItem = {...i, done: !i.done};
+                      return newItem;
+                    }
+                    return i;
+                  });
+                  setItems(updatedItems);
                 }}
               />
             ))}
