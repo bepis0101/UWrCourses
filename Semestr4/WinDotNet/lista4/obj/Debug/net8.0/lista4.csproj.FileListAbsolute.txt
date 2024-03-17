@@ -1,0 +1,15 @@
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\bin\Debug\net8.0\lista4.exe
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\bin\Debug\net8.0\lista4.deps.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\bin\Debug\net8.0\lista4.runtimeconfig.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\bin\Debug\net8.0\lista4.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\bin\Debug\net8.0\lista4.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.AssemblyInfoInputs.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.AssemblyInfo.cs
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.csproj.CoreCompileInputs.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.sourcelink.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\refint\lista4.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\lista4.genruntimeconfig.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista4\obj\Debug\net8.0\ref\lista4.dll

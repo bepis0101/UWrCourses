@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{021EF300-84C1-44AB-8B64-93E9B44D6348}|lista4.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista4\\zad8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{021EF300-84C1-44AB-8B64-93E9B44D6348}|lista4.csproj|solutionrelative:zad8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "zad8.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista4\\zad8.cs",
+              "RelativeDocumentMoniker": "zad8.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista4\\zad8.cs",
+              "RelativeToolTip": "zad8.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T12:21:08.388Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
