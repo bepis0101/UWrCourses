@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 public class ListHelper
 {
     public static List<TOutput> ConvertAll<T, TOutput>(List<T> list, Converter<T, TOutput> converter)
-    {
-
-    }
     public static List<T> FindAll<T>(
     List<T> list,
     Predicate<T> match);

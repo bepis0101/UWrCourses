@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{021EF300-84C1-44AB-8B64-93E9B44D6348}|lista4.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista4\\zad8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{021EF300-84C1-44AB-8B64-93E9B44D6348}|lista4.csproj|solutionrelative:zad8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{021EF300-84C1-44AB-8B64-93E9B44D6348}|lista4.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista4\\zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{021EF300-84C1-44AB-8B64-93E9B44D6348}|lista4.csproj|solutionrelative:zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "zad4.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista4\\zad4.cs",
+              "RelativeDocumentMoniker": "zad4.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista4\\zad4.cs",
+              "RelativeToolTip": "zad4.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T09:38:28.845Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "zad8.cs",
               "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista4\\zad8.cs",
               "RelativeToolTip": "zad8.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAAJAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-17T12:21:08.388Z",
               "EditorCaption": ""

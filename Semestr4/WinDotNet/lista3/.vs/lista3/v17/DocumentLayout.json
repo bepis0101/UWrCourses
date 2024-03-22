@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\borys\\source\\repos\\lista3\\",
+  "WorkspaceRootPath": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{771521AD-7BB4-4BEE-AFD7-4FBDA2F0FB9A}|lista3.csproj|c:\\users\\borys\\source\\repos\\lista3\\zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{771521AD-7BB4-4BEE-AFD7-4FBDA2F0FB9A}|lista3.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista3\\zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{771521AD-7BB4-4BEE-AFD7-4FBDA2F0FB9A}|lista3.csproj|solutionrelative:zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{771521AD-7BB4-4BEE-AFD7-4FBDA2F0FB9A}|lista3.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista3\\zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{771521AD-7BB4-4BEE-AFD7-4FBDA2F0FB9A}|lista3.csproj|solutionrelative:zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "zad4.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista3\\zad4.cs",
+              "RelativeDocumentMoniker": "zad4.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista3\\zad4.cs",
+              "RelativeToolTip": "zad4.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T09:34:07.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "zad5.cs",
-              "DocumentMoniker": "C:\\Users\\borys\\source\\repos\\lista3\\zad5.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista3\\zad5.cs",
               "RelativeDocumentMoniker": "zad5.cs",
-              "ToolTip": "C:\\Users\\borys\\source\\repos\\lista3\\zad5.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista3\\zad5.cs",
               "RelativeToolTip": "zad5.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAfAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA5wAgAAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-16T22:32:33.539Z",
               "EditorCaption": ""

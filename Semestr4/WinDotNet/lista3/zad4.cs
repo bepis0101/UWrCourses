@@ -13,8 +13,8 @@ public class Program4
     public static void Main4(string[] args)
     {
         List<int> nums = new() { 1, 3, 4, 9, 12, 1, 10 };
-        nums = nums.ConvertAll(delegate (int i) { return i * i; });
-        nums.ForEach(delegate (int i) { Console.Write(i); Console.Write(' '); });
+        nums = nums.ConvertAll( i => i * i );
+        nums.ForEach( i =>{ Console.Write(i); Console.Write(' '); });
         Console.Write('\n');
         nums.RemoveAll(delegate (int i) { return i % 2 == 0; });
         nums.ForEach(delegate (int i) { Console.Write(i); Console.Write(' '); });
