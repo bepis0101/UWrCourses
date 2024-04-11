@@ -1,0 +1,17 @@
+// Validating benchmarks:
+// Benchmark _Benchmark.calc: Mono(Runtime=Mono)
+//    * Mono is not installed or added to PATH, benchmark '_Benchmark.calc: Mono(Runtime=Mono)' will not be executed
+
+// Benchmark _Benchmark.calc: Mono(Runtime=Mono)
+//    * The Roslyn toolchain is only supported on .NET Framework
+
+// Benchmark _Benchmark._calc: Mono(Runtime=Mono)
+//    * Mono is not installed or added to PATH, benchmark '_Benchmark._calc: Mono(Runtime=Mono)' will not be executed
+
+// Benchmark _Benchmark._calc: Mono(Runtime=Mono)
+//    * The Roslyn toolchain is only supported on .NET Framework
+
+//    * Assembly lista5 which defines benchmarks is non-optimized
+Benchmark was built without optimization enabled (most probably a DEBUG configuration). Please, build it in RELEASE.
+If you want to debug the benchmarks, please see https://benchmarkdotnet.org/articles/guides/troubleshooting.html#debugging-benchmarks.
+
