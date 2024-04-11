@@ -44,12 +44,12 @@ export function FormDialog({items, setItems}: {items: Item[], setItems: React.Di
           onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             const item = {
-              id: Math.floor(Math.random()*100000000),
-              name: (event.target as any).name.value,
-              type: (event.target as any).type.value,
-              price: (event.target as any).price.value,
+              id: Math.floor( Math.random() * 100000000 ),
+              name: ( event.target as any ).name.value,
+              type: ( event.target as any ).type.value,
+              price: ( event.target as any ).price.value,
               avilability: true,
-              item: (event.target as any).item.value,
+              item: ( event.target as any ).item.value,
             };
             setItems([...items, item]);
             handleClose();

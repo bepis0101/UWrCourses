@@ -76,7 +76,6 @@ export default function DataTable() {
         />
       </div>
       <AlertDialog open={alertOpen} setOpen={setAlertOpen} rowName={rowName} deleteRow={handleDeleteRow}/>
-      
     </React.Fragment>
   );
 }

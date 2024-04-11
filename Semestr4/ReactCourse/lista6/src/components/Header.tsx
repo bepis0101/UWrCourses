@@ -8,8 +8,6 @@ import { Avatar, Box, Tooltip } from '@mui/material';
 
 
 function ResponsiveAppBar() {
-
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -31,8 +29,6 @@ function ResponsiveAppBar() {
           >
             BODEGA
           </Typography>
-
-          
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Remy Sharp">
               <IconButton  sx={{ p: 0 }}>
