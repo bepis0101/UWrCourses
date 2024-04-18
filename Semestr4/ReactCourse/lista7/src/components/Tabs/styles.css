@@ -1,0 +1,71 @@
+.TabsRoot {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 50dvh;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+}
+.TabsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid white;
+    padding: 10px;
+    flex-shrink: 0;
+}
+.TabsTrigger {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.TabsTrigger:hover {
+    color: rgb(197, 27, 197);
+}
+
+.TabsTrigger[data-state='active'] {
+    color: rgb(197, 27, 197);
+    text-shadow: 0 0 5px rgb(197, 27, 197);    
+}
+
+.TabsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+
+.Button {
+    border: none;
+    background: rgb(197, 27, 197);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Button:hover {
+    background: rgb(197, 27, 197, 0.8);
+}
+
+
+.FormPref {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 10px;
+}
+.FormPref label {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

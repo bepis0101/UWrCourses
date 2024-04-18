@@ -1,0 +1,7 @@
+body {
+  background: rgb(15,215,37);
+  background: linear-gradient(90deg, rgba(15,215,37,1) 0%, rgba(39,179,128,1) 35%, rgba(72,178,228,1) 58%);
+
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+}

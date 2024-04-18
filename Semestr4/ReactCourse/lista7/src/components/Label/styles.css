@@ -1,0 +1,14 @@
+.Fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: none;
+}
+
+.LabelRoot {
+  margin-bottom: 5px;
+}
+.Input {
+  border: 2px solid white;
+  border-radius: 5px;
+}
