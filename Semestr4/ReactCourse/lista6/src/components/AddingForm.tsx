@@ -67,6 +67,7 @@ export function FormDialog({items, setItems}: {items: Item[], setItems: React.Di
             id="name"
             label="Name"
             type="text"
+            required
             fullWidth
           />
           <TextField

@@ -7,10 +7,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function AlertDialog({ open, setOpen, rowName, deleteRow }: 
-    { open: boolean, 
+    { 
+      open: boolean, 
       setOpen: React.Dispatch<React.SetStateAction<boolean>>, 
       rowName: string, 
-      deleteRow: ()=>void
+      deleteRow: () => void
     }) {
 
   const handleClose = () => {
