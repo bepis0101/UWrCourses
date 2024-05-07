@@ -28,41 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
-            this.panelClock = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer();
-            this.SuspendLayout();
-            // 
-            // panelClock
-            // 
-            this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelClock.Location = new System.Drawing.Point(0, 0);
-            this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(800, 450);
-            this.panelClock.TabIndex = 0;
-            this.panelClock.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelClock_Paint);
+            components = new System.ComponentModel.Container();
+            timer1 = new System.Windows.Forms.Timer(components);
+            SuspendLayout();
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
+            timer1.Enabled = true;
             // 
-            // MainForm
+            // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelClock);
-            this.Name = "MainForm";
-            this.Text = "Analog Clock";
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1333, 865);
+            Margin = new Padding(5, 6, 5, 6);
+            Name = "Form1";
+            Text = "Analog Clock";
+            Paint += PanelClock_Paint;
+            Resize += MainForm_Resize;
+            ResumeLayout(false);
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelClock;
         private System.Windows.Forms.Timer timer1;
     }
 }

@@ -9,6 +9,7 @@ namespace lista7
     {
         public Form1()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
             InitializeComponent();
             timer1.Interval = 1000;
             timer1.Tick += Timer1_Tick;
@@ -17,7 +18,7 @@ namespace lista7
         private void Timer1_Tick(object sender, EventArgs e)
         {
             // Wywo³anie metody Invalidate() powoduje odrysowanie kontrolki Panel
-            panelClock.Invalidate();
+            this.Invalidate();
         }
         private void PanelClock_Paint(object sender, PaintEventArgs e)
         {
@@ -26,8 +27,8 @@ namespace lista7
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Pobranie wymiarów panelu
-            int width = panelClock.Width;
-            int height = panelClock.Height;
+            int width = this.ClientRectangle.Width;
+            int height = this.ClientRectangle.Height;
 
             // Obliczenie œrodka panelu
             int centerX = width / 2;
@@ -80,7 +81,7 @@ namespace lista7
         private void MainForm_Resize(object sender, EventArgs e)
         {
             // Ponowne rysowanie zegara po zmianie rozmiaru okna
-            panelClock.Invalidate();
+            this.Invalidate();
         }
     }
 }

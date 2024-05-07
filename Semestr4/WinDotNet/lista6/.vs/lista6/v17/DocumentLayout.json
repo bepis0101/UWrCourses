@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{3F973E40-1406-4704-A6EC-E902B4F7F6E4}|lista6.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista6\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3F973E40-1406-4704-A6EC-E902B4F7F6E4}|lista6.csproj|solutionrelative:form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F973E40-1406-4704-A6EC-E902B4F7F6E4}|lista6.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F973E40-1406-4704-A6EC-E902B4F7F6E4}|lista6.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,9 +32,9 @@
               "RelativeDocumentMoniker": "Form3.cs",
               "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista6\\Form3.cs",
               "RelativeToolTip": "Form3.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAgwB8AAAAuAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T22:20:25.822Z",
+              "WhenOpened": "2024-04-23T09:24:03.522Z",
               "EditorCaption": ""
             },
             {
@@ -42,8 +46,21 @@
               "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista6\\Form3.cs [Design]",
               "RelativeToolTip": "Form3.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T22:18:21.45Z",
+              "WhenOpened": "2024-04-23T09:23:57.203Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista6\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista6\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T09:21:58.764Z",
+              "EditorCaption": ""
             }
           ]
         }

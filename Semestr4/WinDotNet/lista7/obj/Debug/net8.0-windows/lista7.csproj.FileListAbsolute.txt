@@ -16,3 +16,4 @@ C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista7\obj\Debug\net8.0-windows\li
 C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista7\obj\Debug\net8.0-windows\lista7.genruntimeconfig.cache
 C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista7\obj\Debug\net8.0-windows\ref\lista7.dll
 C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista7\obj\Debug\net8.0-windows\lista7.Form2.resources
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista7\obj\Debug\net8.0-windows\lista7.Form3.resources

@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista7\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista7\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista7\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista7\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|solutionrelative:form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista7\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F38FDE9F-8DD2-49C2-B7FE-281A06A62DAE}|lista7.csproj|solutionrelative:form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -23,6 +35,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAwB0AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T09:29:19.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T09:29:13.959Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T09:28:35.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form3.cs",
               "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form3.cs",
               "RelativeDocumentMoniker": "Form3.cs",
@@ -35,15 +85,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Form3.cs [Design]",
               "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form3.cs",
               "RelativeDocumentMoniker": "Form3.cs",
               "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista7\\Form3.cs [Design]",
               "RelativeToolTip": "Form3.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T10:28:56.554Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-04-21T10:28:56.554Z"
             }
           ]
         }
