@@ -19,3 +19,5 @@ C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista8\obj\Debug\net8.0-windows\re
 C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista8\obj\Debug\net8.0-windows\lista8.pdb
 C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista8\obj\Debug\net8.0-windows\lista8.genruntimeconfig.cache
 C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista8\obj\Debug\net8.0-windows\ref\lista8.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista8\obj\Debug\net8.0-windows\Window1.g.cs
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista8\obj\Debug\net8.0-windows\Window1.baml

@@ -1,0 +1,17 @@
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\bin\Debug\net8.0-windows\Task4WinForms.exe
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\bin\Debug\net8.0-windows\Task4WinForms.deps.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\bin\Debug\net8.0-windows\Task4WinForms.runtimeconfig.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\bin\Debug\net8.0-windows\Task4WinForms.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\bin\Debug\net8.0-windows\Task4WinForms.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.Form1.resources
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.csproj.GenerateResource.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.AssemblyInfoInputs.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.AssemblyInfo.cs
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.csproj.CoreCompileInputs.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.sourcelink.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\refint\Task4WinForms.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\Task4WinForms.genruntimeconfig.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\Task4WinForms\obj\Debug\net8.0-windows\ref\Task4WinForms.dll

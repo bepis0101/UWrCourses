@@ -1,0 +1,15 @@
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\bin\Debug\net8.0\lista9.exe
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\bin\Debug\net8.0\lista9.deps.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\bin\Debug\net8.0\lista9.runtimeconfig.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\bin\Debug\net8.0\lista9.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\bin\Debug\net8.0\lista9.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.AssemblyInfoInputs.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.AssemblyInfo.cs
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.csproj.CoreCompileInputs.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.sourcelink.json
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\refint\lista9.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\lista9.genruntimeconfig.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\lista9\obj\Debug\net8.0\ref\lista9.dll

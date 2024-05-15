@@ -22,7 +22,7 @@ namespace lista8
         Button[,] buttons = new Button[3, 3];
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
             InitializeButtonsArray();
         }
 

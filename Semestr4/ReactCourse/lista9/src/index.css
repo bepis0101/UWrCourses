@@ -1,0 +1,69 @@
+/* C:/Users/borys/Desktop/UWr/Semestr4/ReactCourse/lista9/src/index.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: darkgrey;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.navigation nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  background-color: #333;
+  color: white;
+
+}
+
+.content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.content p {
+  margin: 20px;
+  width: 50%;
+}
+#projects li {
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+  background-color: silver;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+}
+#projects li:hover {
+  background-color: lightgrey;
+}
+#projects li a {
+  text-decoration: none;
+  color: black;
+}
+
+.links {
+  text-decoration: none;
+  color: black;
+}
