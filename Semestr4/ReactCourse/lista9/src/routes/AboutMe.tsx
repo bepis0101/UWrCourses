@@ -1,4 +1,3 @@
-import React from "react";
 import '../index.css';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
@@ -35,7 +34,7 @@ export default function AboutMe() {
               <img src="https://img.icons8.com/material-outlined/24/000000/school.png" />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="XIVLO we Wrocławiu" secondary="High school" />
+          <ListItemText primary="XIVLO in Wrocław" secondary="High school" />
         </ListItem>
       </List>
       <h2>Experience:</h2>

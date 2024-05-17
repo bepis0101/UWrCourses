@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { Tabs, Tab } from "@mui/material";
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import InsertEmoticonSharpIcon from '@mui/icons-material/InsertEmoticonSharp';
@@ -23,7 +23,7 @@ export default function RootLayout() {
             color: location.pathname === '/projects' ? 'black' : 'gray',
           }} label="Projects" component={NavLink} to="/projects" icon={<AccountTreeSharpIcon />} />
           <Tab sx={{
-            color: location.pathname === '/' ? 'black' : 'gray',
+            color: location.pathname === '/contact' ? 'black' : 'gray',
           }} label="Contact" component={NavLink} to="/contact" icon={<AlternateEmailSharpIcon/>} />
         </Tabs>        
       </nav>
