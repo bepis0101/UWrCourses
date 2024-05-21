@@ -1,0 +1,10 @@
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\bin\Debug\DB.dacpac
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\bin\Debug\DB.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\bin\Debug\DB.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\DB.sqlproj.AssemblyReference.cache
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\DB.dll
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\DB.pdb
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\Model.xml
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\refactor.xml
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\postdeploy.sql
+C:\Users\borys\Desktop\UWr\Semestr4\WinDotNet\zzA\DB\obj\Debug\predeploy.sql
