@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css';
 import Question from './components/Question/Question';
 import Button from './components/AnsButton/Button';
@@ -135,7 +135,7 @@ function App() {
           <Button key={name} name={name} onClick={() => {
             if(name === correct.name) {
               setScore(score + 1);
-              if(score+1 > highScore) {
+              if(score+1 > localStorage.highScore) {
                 setHighScore(score+1);
                 localStorage.setItem('highScore', (score+1).toString());
               }

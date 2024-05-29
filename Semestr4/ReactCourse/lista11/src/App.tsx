@@ -1,55 +1,47 @@
 import './index.css'
 import Header from './components/Header'
 import Table from './components/Table'
-import useBooks from './booksApi/getBooks';
-import useGenres from './genresApi/getGenres';
 import { GridColDef } from "@mui/x-data-grid";
 import { useState } from 'react';
 import { IGenre, IBook } from './types/types';
-import useRemoveBook from './booksApi/removeBook';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { cols } from './components/Table';
 import AlertDialog from './components/Alert';
+import fetchBooks from './booksApi/getBooks';
+import fetchGenres from './genresApi/getGenres';
+import addBook from './booksApi/addBook';
+import removeBook from './booksApi/removeBook';
+import editBook from './booksApi/editBook';
+
 
 function App() {
+  const queryClient = useQueryClient();
+  const books = useQuery({queryKey: ['books'], queryFn: fetchBooks});
+  const genres = useQuery({queryKey: ['genres'], queryFn: fetchGenres});
+  const addBookMutation = useMutation({
+    mutationFn: addBook,
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['books']});
+    }
+  })
+  const deleteBookMutation = useMutation({
+    mutationFn: removeBook,
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['books']});
+    }
+  })
+  const editBookMutation = useMutation({
+    mutationFn: editBook,
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['books']});
+    }
+  });
   const [bookDelete, setBookDelete] = useState<string>('');
   const [bookEdit, setBookEdit] = useState<string>('');
   const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
   const columns: GridColDef[] = [
-    {
-      field: "title",
-      headerName: "Title",
-      width: 150,
-    },
-    {
-      field: "author",
-      headerName: "Author",
-      width: 150,
-    },
-    {
-      field: "year",
-      headerName: "Year",
-      width: 90,
-    },
-    {
-      field: "description",
-      headerName: "Description",
-      width: 150,
-    },
-    {
-      field: "copies",
-      headerName: "Copies",
-      width: 90,
-    },
-    {
-      field: "price",
-      headerName: "Price",
-      width: 90,
-    },
-    {
-      field: "genre",
-      headerName: "Genre",
-      width: 90,
-    },
+    ...cols, 
     {
       field: "actions",
       headerName: "Actions",
@@ -72,28 +64,20 @@ function App() {
       },
     }
   ];
-  
-  function handleEdit(id: string) {
 
-  }
-
-  const rowsQuery = useBooks();
-  const genresQuery = useGenres();
-
-
-  if(rowsQuery.isLoading || genresQuery.isLoading) {
-    return <div>Loading...</div>   
-  }
-  const rows = rowsQuery.data as IBook[];
-  const genres = genresQuery.data as IGenre[];
-  rows.forEach((row: any) => {
-    for(let genre of genres) {
-      if (row.genreId === genre.id) {
-        row.genre = genre.name;
-      }
+  const booksData = books.data;
+  const genresData = genres.data;
+  if(books.isLoading || genres.isLoading) return <div>Loading...</div>
+  if(books.isError || genres.isError) return <div>Error</div>
+  const rows = booksData.map((book: IBook) => {
+    const genre = genresData.find((genre: IGenre) => genre.id === book.genreId);
+    return {
+      ...book,
+      genre: genre?.name,
     }
   });
 
+  
   return (
     <div className='container'>
       <Header />
@@ -102,12 +86,14 @@ function App() {
         open={dialogOpen} 
         onClose={() => setDialogOpen(false)} 
         onMutate={() => {
-          useRemoveBook().mutate(bookDelete);
+          deleteBookMutation.mutate(bookDelete);
           console.log('delete', bookDelete);
           setDialogOpen(false);
           setBookDelete('');
         }
       } />
+
+
     </div>
   )
 }
