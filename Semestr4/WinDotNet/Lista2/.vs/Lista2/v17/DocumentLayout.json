@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\borys\\source\\repos\\Lista2\\",
+  "WorkspaceRootPath": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|c:\\users\\borys\\source\\repos\\lista2\\zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|solutionrelative:zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|c:\\users\\borys\\source\\repos\\lista2\\zad6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|solutionrelative:zad6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|c:\\users\\borys\\source\\repos\\lista2\\zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|solutionrelative:zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista2\\zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60BC02A1-59D4-4A1B-81B2-85C0F4CD4E51}|Lista2.csproj|solutionrelative:zad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "zad4.cs",
-              "DocumentMoniker": "C:\\Users\\borys\\source\\repos\\Lista2\\zad4.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad4.cs",
               "RelativeDocumentMoniker": "zad4.cs",
-              "ToolTip": "C:\\Users\\borys\\source\\repos\\Lista2\\zad4.cs",
-              "RelativeToolTip": "zad4.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwAcAAAAEAAAA",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad4.cs*",
+              "RelativeToolTip": "zad4.cs*",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAgwDoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-02T11:39:46.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "zad6.cs",
-              "DocumentMoniker": "C:\\Users\\borys\\source\\repos\\Lista2\\zad6.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad6.cs",
               "RelativeDocumentMoniker": "zad6.cs",
-              "ToolTip": "C:\\Users\\borys\\source\\repos\\Lista2\\zad6.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad6.cs",
               "RelativeToolTip": "zad6.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAowCAAAAAVAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAA1wCAAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-02T12:52:26.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "zad5.cs",
-              "DocumentMoniker": "C:\\Users\\borys\\source\\repos\\Lista2\\zad5.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad5.cs",
               "RelativeDocumentMoniker": "zad5.cs",
-              "ToolTip": "C:\\Users\\borys\\source\\repos\\Lista2\\zad5.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista2\\zad5.cs",
               "RelativeToolTip": "zad5.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "ViewState": "AQIAADQAAAAAAAAAAAAkwAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-02T12:46:47.154Z",
               "EditorCaption": ""

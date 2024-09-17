@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\borys\\source\\repos\\Lista1\\",
+  "WorkspaceRootPath": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|c:\\users\\borys\\source\\repos\\lista1\\zad6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista1\\zad1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|solutionrelative:zad1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|c:\\users\\borys\\desktop\\uwr\\semestr4\\windotnet\\lista1\\zad6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|solutionrelative:zad6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|c:\\users\\borys\\source\\repos\\lista1\\zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07307F56-CDF3-4303-9922-2960B7703AAC}|Lista1.csproj|solutionrelative:zad5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,30 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "zad1.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad1.cs",
+              "RelativeDocumentMoniker": "zad1.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad1.cs",
+              "RelativeToolTip": "zad1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T11:38:10.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "zad5.cs",
-              "DocumentMoniker": "C:\\Users\\borys\\source\\repos\\Lista1\\zad5.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad5.cs",
               "RelativeDocumentMoniker": "zad5.cs",
-              "ToolTip": "C:\\Users\\borys\\source\\repos\\Lista1\\zad5.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad5.cs",
               "RelativeToolTip": "zad5.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAgwC0AAAABAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAkwCsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-02T14:16:52.892Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "zad6.cs",
-              "DocumentMoniker": "C:\\Users\\borys\\source\\repos\\Lista1\\zad6.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad6.cs",
               "RelativeDocumentMoniker": "zad6.cs",
-              "ToolTip": "C:\\Users\\borys\\source\\repos\\Lista1\\zad6.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr4\\WinDotNet\\lista1\\zad6.cs",
               "RelativeToolTip": "zad6.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAiAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAqwDkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-02T14:07:37.826Z",
               "EditorCaption": ""
