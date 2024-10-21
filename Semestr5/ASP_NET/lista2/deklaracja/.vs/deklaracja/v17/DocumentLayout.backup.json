@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0947445D-A8CE-4817-B149-2144D8692E1C}|deklaracja\\deklaracja.csproj|c:\\users\\borys\\desktop\\uwr\\semestr5\\asp_net\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0947445D-A8CE-4817-B149-2144D8692E1C}|deklaracja\\deklaracja.csproj|solutionrelative:deklaracja\\zgloszenie.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0947445D-A8CE-4817-B149-2144D8692E1C}|deklaracja\\deklaracja.csproj|c:\\users\\borys\\desktop\\uwr\\semestr5\\asp_net\\lista2\\deklaracja\\deklaracja\\print.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0947445D-A8CE-4817-B149-2144D8692E1C}|deklaracja\\deklaracja.csproj|solutionrelative:deklaracja\\print.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0947445D-A8CE-4817-B149-2144D8692E1C}|deklaracja\\deklaracja.csproj|c:\\users\\borys\\desktop\\uwr\\semestr5\\asp_net\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0947445D-A8CE-4817-B149-2144D8692E1C}|deklaracja\\deklaracja.csproj|solutionrelative:deklaracja\\zgloszenie.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "print.aspx",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\print.aspx",
+              "RelativeDocumentMoniker": "deklaracja\\print.aspx",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\print.aspx",
+              "RelativeToolTip": "deklaracja\\print.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-21T19:57:01.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "zgloszenie.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx.cs",
+              "RelativeDocumentMoniker": "deklaracja\\zgloszenie.aspx.cs",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx.cs",
+              "RelativeToolTip": "deklaracja\\zgloszenie.aspx.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwEMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T18:36:13.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "zgloszenie.aspx",
+              "DocumentMoniker": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx",
+              "RelativeDocumentMoniker": "deklaracja\\zgloszenie.aspx",
+              "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx",
+              "RelativeToolTip": "deklaracja\\zgloszenie.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-21T18:35:04.263Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

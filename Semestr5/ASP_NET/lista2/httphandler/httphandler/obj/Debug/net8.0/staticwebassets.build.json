@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "jyOzg+k6tu5zB+1NmuSUGeScmrMKIO6JKavw0vrv8zs=",
+  "Source": "httphandler",
+  "BasePath": "_content/httphandler",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
