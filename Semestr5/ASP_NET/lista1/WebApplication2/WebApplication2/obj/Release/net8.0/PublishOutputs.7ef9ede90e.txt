@@ -1,0 +1,7 @@
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\WebApplication2.exe
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\WebApplication2.dll
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\WebApplication2.deps.json
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\WebApplication2.runtimeconfig.json
+C:\Users\borys\Desktop\UWr\Semestr5\ASP_NET\lista1\WebApplication2\WebApplication2\obj\Release\net8.0\PubTmp\Out\WebApplication2.pdb
