@@ -21,6 +21,8 @@ namespace deklaracja
                 lbl.Text = "Zadanie " + i.ToString() + " ";
                 TextBox tb = new TextBox();
                 tb.ID = "task" + i.ToString();
+                tb.TextMode = TextBoxMode.Number;
+                tb.Attributes.Add("min", "0");
                 tasks.Controls.Add(lbl);
                 tasks.Controls.Add(tb);
             }
@@ -34,19 +36,8 @@ namespace deklaracja
             string list_number = this.list_number.Text;
             string classname = this.name_of_class.Text;
             string[] tasks = new string[10];
-            if(name == "")
-            {
-                Response.Redirect("zgloszenie.aspx");
-            }
-            if (surname == "")
-            {
-                Response.Redirect("zgloszenie.aspx");
-            }
-            if (date == "")
-            {
-                Response.Redirect("zgloszenie.aspx");
-            }
-            if (list_number == "")
+            
+            if (list_number == "" || classname == "" || date == "" || surname == "" || name == "")
             {
                 Response.Redirect("zgloszenie.aspx");
             }
@@ -62,7 +53,7 @@ namespace deklaracja
                     tasks[i - 1] = tb.Text;
                 }
             }
-            string url = "print.aspx?name="+ name 
+            string url = "print.aspx?name="     + name 
                             + "&surname="       + surname 
                             + "&date="          + date
                             + "&course="        + classname

@@ -39,15 +39,15 @@
             </div>
             <div class="item">
                 <asp:Label Text="Data: " runat="server" />
-                <asp:TextBox runat="server" id="date"/>
+                <asp:TextBox runat="server" id="date" TextMode="Date"/>
             </div>
              <div class="item">
                  <asp:Label Text="Nazwa zajęć" runat="server" />
-                 <asp:TextBox runat="server" id="name_of_class"/>
+                 <asp:TextBox runat="server" id="name_of_class" />
             </div>
             <div class="item">
                 <asp:Label Text="Numer listy" runat="server" />
-                <asp:TextBox runat="server" id="list_number"/>
+                <asp:TextBox runat="server" id="list_number" TextMode="Number"/>
             </div>
             <div class="task" id="tasks" runat="server">
 
