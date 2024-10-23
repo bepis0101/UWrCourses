@@ -37,7 +37,6 @@ public:
     this->pos       = pos;
     this->direction = 'R';
 
-
     for(int k = 0; k < 4; k++) {
       for(int i = 0; i < ROWS; i++) {
         for(int j = 0; j < COLS; j++) {
@@ -103,13 +102,7 @@ public:
 
   void makeMoves() {
     for(auto &r : robots) {
-      // check if robot is still alive and if it is increment the score
-      if(r.isActive) {
-        score++;
-      } else continue;
-
       r.addToVisited();
-      r.moveBot();
 
       Position robotPos = r.getPosition();
 
@@ -132,6 +125,9 @@ public:
         default:
           break;
       }
+      if(r.isActive) score++;
+      else continue;
+      r.moveBot();
       // if we double the position with direction then robot dies
       if(r.isVisited()) {
         r.isActive = false;
@@ -142,11 +138,23 @@ public:
     }
   }
   void generateValidArrows() {
+    int freeSpaces = 0;
     for(int y = 0; y < ROWS; y++) {
       for(int x = 0; x < COLS; x++) {
         if(board[y][x] == '.') {
-          int random = rand() % 2;
-          if(random) {
+          freeSpaces++;      
+        }
+      }
+    }
+    int random = rand() % freeSpaces;
+    float prob = (float)random / (float)freeSpaces;
+    default_random_engine gen;
+    for(int y = 0; y < ROWS; y++) {
+      for(int x = 0; x < COLS; x++) {
+        if(board[y][x] == '.') {
+          uniform_real_distribution<float> dist(0.0, 1.0);
+          float temp = dist(gen);
+          if(temp <= prob) {
             random = rand() % 4;
             genArrows.push_back({{x, y}, DIRS_REV[random]});
             board[y][x] = DIRS_REV[random];
@@ -154,6 +162,7 @@ public:
         }
       }
     }
+
   }
 
   void printArrows() {
@@ -167,7 +176,15 @@ public:
     cerr << "BOARD:\n";
     for(int y = 0; y < ROWS; y++) {
       for(int x = 0; x < COLS; x++) {
-        cerr << board[y][x] << ' ';
+        bool check = false;
+        for(auto &r : robots) {
+          if(r.getPosition().x == x and r.getPosition().y == y) {
+            check = true;
+            cerr << "r ";
+            break;
+          }
+        }
+        if(!check) cerr << board[y][x] << ' '; 
       }
       cerr << '\n';
     }
@@ -191,7 +208,6 @@ public:
 
 
 int main() {
-  Timer t;
 
   srand(time(NULL));
   char board[ROWS][COLS];
@@ -214,10 +230,11 @@ int main() {
     robots[i] = Robot(x, y);
   }
 
+  Timer t;
   State s = State(robots, board);
   State maks = s;
   int iterations = 0;
-  
+
   while(t.elapsed() <= 900) {
     iterations++;
     while(s.checkIfAnyRobotsAreAlive()) {
@@ -229,7 +246,8 @@ int main() {
     s = State(robots, board);
     s.generateValidArrows();
   }
-  cerr << iterations;
+  cerr << maks.getScore();
+  
   maks.printArrows();
 
 }
