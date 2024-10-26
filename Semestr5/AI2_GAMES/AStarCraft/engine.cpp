@@ -8,9 +8,12 @@ map<char, short> DIRS = {{'L', 0}, {'R', 1}, {'U', 2}, {'D', 3}};
 char DIRS_REV[4] = {'L', 'R', 'U', 'D'};
 
 struct Position {
-  int x;
-  int y;
+  int x = -1;
+  int y = -1;
 };
+bool operator==(const Position& lhs, const Position& rhs) {
+  return lhs.x == rhs.x && rhs.y == lhs.y;
+}
 
 map<char, Position> Direction = {{'L', {-1, 0}}, {'R', {1, 0}}, {'U', {0, -1}}, {'D', {0, 1}}};
 
@@ -18,6 +21,14 @@ map<char, Position> Direction = {{'L', {-1, 0}}, {'R', {1, 0}}, {'U', {0, -1}}, 
 int myModulo(int x, int p) {
   return (x+p)%p;
 }
+
+struct hashPos {
+  size_t operator() (const Position& pos) const noexcept {
+    size_t x = hash<int>{}(pos.x);
+    size_t y = hash<int>{}(pos.y);
+    return x ^ (y << 1);
+  }
+};
 
 class Robot {
 private:
@@ -31,11 +42,11 @@ public:
     this->pos = {-1, -1};
     this->direction = 'R';
   }
-  Robot(int x, int y) {
+  Robot(int x, int y, char direction) {
     this->isActive  = true;
     Position pos    = {x, y};
     this->pos       = pos;
-    this->direction = 'R';
+    this->direction = direction;
 
     for(int k = 0; k < 4; k++) {
       for(int i = 0; i < ROWS; i++) {
@@ -71,6 +82,10 @@ public:
   }
 };
 
+bool isArrow(char c) {
+  if(c == 'L' or c == 'R' or c == 'U' or c == 'D') return true;
+  return false;
+}
 
 class State {
 private:
@@ -78,6 +93,7 @@ private:
   vector<Robot> robots;
   int score;
   vector<pair<Position, char>> genArrows;
+  unordered_set<Position, hashPos> freePositions;
 public:
   State(vector<Robot> robots, char board[ROWS][COLS]) {
     this-> robots = robots;
@@ -85,6 +101,9 @@ public:
     for(int y = 0; y < ROWS; y++) {
       for(int x = 0; x < COLS; x++) {
         this->board[y][x] = board[y][x];
+        if(board[y][x] == '.') {
+          freePositions.insert({x, y});
+        }
       }
     }
   }
@@ -137,32 +156,49 @@ public:
       r.addToVisited();
     }
   }
-  void generateValidArrows() {
-    int freeSpaces = 0;
-    for(int y = 0; y < ROWS; y++) {
-      for(int x = 0; x < COLS; x++) {
-        if(board[y][x] == '.') {
-          freeSpaces++;      
-        }
-      }
-    }
-    int random = rand() % freeSpaces;
-    float prob = (float)random / (float)freeSpaces;
-    default_random_engine gen;
-    for(int y = 0; y < ROWS; y++) {
-      for(int x = 0; x < COLS; x++) {
-        if(board[y][x] == '.') {
-          uniform_real_distribution<float> dist(0.0, 1.0);
-          float temp = dist(gen);
-          if(temp <= prob) {
-            random = rand() % 4;
-            genArrows.push_back({{x, y}, DIRS_REV[random]});
-            board[y][x] = DIRS_REV[random];
-          }
-        }
-      }
-    }
 
+  void mutate() {
+    // we have 3 types of mutations
+    // 1. adding an arrow
+    // 2. deleting an arrow
+    // 3. changing the direction of an arrow
+
+  }
+  bool checkIfArrowIsCorrect(Position pos, char arrow) {
+    char arrowIndicator = board[myModulo(pos.y+Direction[arrow].y, ROWS)][myModulo(pos.x+Direction[arrow].x, COLS)];
+    if(arrowIndicator == '#') {
+      return false;
+    }
+    if(isArrow(arrowIndicator)) {
+      if(Direction[arrow].x+Direction[arrowIndicator].x == 0 and Direction[arrow].y == Direction[arrowIndicator].y == 0) {
+        return false;
+      } 
+    }
+    return true;
+  }
+  void generateValidArrows() {
+    vector<Position> deleted;
+    int random = rand() % freePositions.size();
+    float prob = (float)random / (float)freePositions.size();
+    default_random_engine gen;
+    for(auto pos : freePositions) {
+      uniform_real_distribution<float> dist(0.0, 1.0);
+      float temp = dist(gen);
+      if(temp <= prob) {
+        random = rand() % 4;
+        char arrow = DIRS_REV[random];
+        if(checkIfArrowIsCorrect(pos, arrow)) {
+          genArrows.push_back({pos, arrow});
+          board[pos.y][pos.x] = arrow;
+          deleted.push_back(pos);
+        } else {
+          continue;
+        }
+      }
+    }
+    for(auto pos : deleted) {
+      freePositions.erase(pos);
+    }
   }
 
   void printArrows() {
@@ -206,11 +242,9 @@ public:
     }
 };
 
+char board[ROWS][COLS];
 
-int main() {
-
-  srand(time(NULL));
-  char board[ROWS][COLS];
+vector<Robot> parseInput() {
   for (int i = 0; i < 10; i++) {
     string line;
     getline(cin, line);
@@ -218,7 +252,6 @@ int main() {
       board[i][j] = line[j];
     }
   }
-
   int robot_count;
   cin >> robot_count; cin.ignore();
   vector<Robot> robots(robot_count);
@@ -227,16 +260,20 @@ int main() {
     int y;
     string direction;
     cin >> x >> y >> direction; cin.ignore();
-    robots[i] = Robot(x, y);
+    robots[i] = Robot(x, y, direction[0]);
   }
+  return robots;
+}
 
-  Timer t;
+int main() {
+  srand(time(NULL));
+  vector<Robot> robots = parseInput();
   State s = State(robots, board);
   State maks = s;
   int iterations = 0;
 
+  Timer t;
   while(t.elapsed() <= 900) {
-    iterations++;
     while(s.checkIfAnyRobotsAreAlive()) {
       s.makeMoves();
     }
