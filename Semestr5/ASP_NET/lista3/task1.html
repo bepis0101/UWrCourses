@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GET</title>
+</head>
+<body>
+  <a href="task1_2.html?p1=v1&p2=v2" id="POST" onclick="">żądanie GET</a>
+  <form method="post">
+    <input type="text" name="p1">
+    <input type="text" name="p2">
+    <input type="submit" id="SUBMIT" value="żądanie POST">
+  </form>
+  <script>
+    document.getElementById('POST').onclick = function(e) {
+      e.preventDefault();
+      document.querySelector('form').submit();
+    }
+    document.getElementById('SUBMIT').onclick = function(e) {
+      e.preventDefault();
+      document.location.href = `task1_2.html?p1=${document.querySelector('input[name=p1]').value}&p2=${document.querySelector('input[name=p2]').value}`;
+    }
+  </script>
+</body>
+</html>

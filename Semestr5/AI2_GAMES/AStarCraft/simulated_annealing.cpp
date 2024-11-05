@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
 #pragma GCC optimize("Ofast,inline,tracer")
 #pragma GCC optimize("unroll-loops,vpt,split-loops,unswitch-loops")
+#pragma GCC target("arch=haswell,tune=haswell")
+#pragma GCC target("aes,abm,align-stringops,avx,avx2,bmi,bmi2,crc32,cx16,f16c,fma,fsgsbase,fxsr,hle,ieee-fp,lzcnt,mmx,movbe,mwait,pclmul,popcnt,rdrnd,sahf,sse,sse2,sse3,sse4,sse4.1,sse4.2,ssse3,xsave,xsaveopt")
+
 using namespace std;
 
 const int ROWS = 10;
 const int COLS = 19;
 
 const int TIME_LIMIT = 750;
-const double START_TEMP = 1000.0;
-const double END_TEMP = 0.001;
+const double START_TEMP = 30.0;
+const double END_TEMP = 0.0000001;
 const int N = 400;
 
 map<char, short> DIRS = {{'L', 0}, {'R', 1}, {'U', 2}, {'D', 3}};
