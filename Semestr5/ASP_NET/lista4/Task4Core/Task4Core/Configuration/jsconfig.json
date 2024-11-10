@@ -1,0 +1,14 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "AppSettings": {
+    "AppTitle": "Task4Core",
+    "AppVersion": "1.0.0"
+  }
+}
