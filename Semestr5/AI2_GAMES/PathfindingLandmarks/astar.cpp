@@ -2,7 +2,7 @@
 using namespace std;
 
 
-pair<pair<int, int>, double> moves[8] = {
+pair<pair<int, int>, float> moves[8] = {
   {{0, -1}, 1.},
   {{1, -1}, M_SQRT2},
   {{1, 0}, 1.},
@@ -12,10 +12,6 @@ pair<pair<int, int>, double> moves[8] = {
   {{-1, 0}, 1.},
   {{-1, -1}, M_SQRT2}
 };
-
-/**
- * Place the available landmarks to make pathfinding on a given map most efficient.
- **/
 
 const int MAX_WH = 240;
 
@@ -51,7 +47,7 @@ class Landmark {
 public:
   int x;
   int y;
-  double distances[MAX_WH][MAX_WH];
+  float distances[MAX_WH][MAX_WH];
   Landmark() {
     this->x = 0;
     this->y = 0;
@@ -59,18 +55,19 @@ public:
   Landmark(int x, int y) {
     this->x = x;
     this->y = y;
+    this->calc_dists();
   }
   void calc_dists() {
     for(int y = 0; y < HEIGHT; y++) {
       for(int x = 0; x < WIDTH; x++) {
-        distances[y][x] = DBL_MAX;
+        distances[y][x] = FLT_MAX;
       }
     }
-    bool visited[HEIGHT][WIDTH];
+    bool visited[HEIGHT][WIDTH] = {{false}};
     visited[this->y][this->x] = true;
     distances[this->y][this->x] = 0.;
     queue<pair<int, int>> q;
-    q.push({x, y});
+    q.push({this->x, this->y});
     while(!q.empty()) {
       pair<int, int> node = q.front();
       visited[node.second][node.first] = true;
@@ -85,14 +82,21 @@ public:
         }
       }
     }
-
+  }
+  void print_dists() {
+    for(int y = 0; y < HEIGHT; y++) {
+      for(int x = 0; x < WIDTH; x++) {
+        cerr << distances[y][x] << ' ';
+      }
+      cerr << '\n';
+    }
   }
 };
 
 class Node {
 public:
-  double heura;
-  double dist;
+  float heura;
+  float dist;
   int x;
   int y;
   int vis_cnt;
@@ -103,7 +107,7 @@ public:
     this->y       = 0;
     this->vis_cnt = 0;
   }
-  Node(double heura, double dist, int x, int y, int vis_cnt) {
+  Node(float heura, float dist, int x, int y, int vis_cnt) {
     this->heura = heura;
     this->dist = dist;
     this->vis_cnt = vis_cnt;
@@ -129,11 +133,11 @@ public:
     this->num_landmarks = num_landmarks;
   }
 
-  inline double get_best(int x_start, int y_start, int x_end, int y_end) {
-    double res = DBL_MIN;
+  inline float get_best(int x_start, int y_start, int x_end, int y_end) {
+    float res = FLT_MIN;
 
     for(int i = 0; i < ls.size(); i++) {
-      if(ls[i].distances[y_start][x_start] != DBL_MAX and ls[i].distances[y_end][x_end] != DBL_MAX) {
+      if(ls[i].distances[y_start][x_start] != FLT_MAX and ls[i].distances[y_end][x_end] != FLT_MAX) {
         res = max(abs(ls[i].distances[y_start][x_start] - ls[i].distances[y_end][x_end]), res);
       }
     }
@@ -141,40 +145,40 @@ public:
     return res;
   }
 
-  double AStar() {
+  float AStar() {
     bool visited[HEIGHT][WIDTH];
     int vis_num = 1;
     auto lam = [](Node& a, Node& b) {
       return a.heura < b.heura;
     };
     priority_queue<Node, vector<Node>, decltype(lam)> pq(lam);
-    pq.push(Node(get_best(x_start, y_start, x_end, y_end), 0, x_start, y_start, 0));
+    pq.push(Node(get_best(x_start, y_start, x_end, y_end), 0, x_start, y_start, 1));
     while(!pq.empty()) {
       auto node = pq.top();
       pq.pop();
       if(node.x == x_end and node.y == y_end) {
-        return (double)node.vis_cnt/(double)vis_num;
+        return (float)node.vis_cnt / (float)vis_num;
       }
-      visited[node.y][node.x] = true;
       for(int i = 0; i < 8; i++) {
         auto move = moves[i];
         int x = node.x+move.first.first;
         int y = node.y+move.first.second;
         if(!visited[y][x] and board[y][x] == '.') {
           pq.push(Node(get_best(x, y, x_end, y_end), node.dist+move.second, x, y, node.vis_cnt+1));
+          visited[y][x] = true;
           vis_num++;
         }
       }
     }
+    return 0.0;
   }
+
   void generate_landmarks() {
     ls.clear();
-    int generated_landmarks = 0;
-    while(generated_landmarks < num_landmarks) {
+    for(int i = 0; i < num_landmarks; i++) {
       int x = rand() % (WIDTH-2)+1;
       int y = rand() % (HEIGHT-2)+1;
       ls.push_back(Landmark(x, y));
-      generated_landmarks++;
     }
   }
   void regenerate() {
@@ -194,8 +198,7 @@ public:
     Map curr = Map(rand() % (WIDTH-2)+1, rand() % (HEIGHT-2)+1, rand() % (WIDTH-2)+1, rand() % (HEIGHT-2)+1, num_landmarks);
     best = curr;
     Timer total;
-
-    while(total.elapsed() < 9900) {
+    while(total.elapsed() < 9500) {
       float avg = 0.;
       int reruns = 0;
       Timer t;
@@ -209,8 +212,8 @@ public:
         best = curr;
         best_avg = avg / (float)reruns;
       }
+      cerr << "check\n";
     }
-    cerr << best_avg << '\n';
     return best.ls;
   }
 };
@@ -235,12 +238,6 @@ int main()
     Solution s = Solution(landmarks_num);
     auto res = s.sim();
     for (int i = 0; i < landmarks_num; i++) {
-
-        // Write an action using cout. DON'T FORGET THE "<< endl"
-        // To debug: cerr << "Debug messages..." << endl;
-
-
-        // Positions of the landmarks: 'landmarksNum' lines each containing 'column row' coordinates
-        cout << res[i].x << ' ' << res[i].y << endl;
+      cout << res[i].x << ' ' << res[i].y << endl;
     }
 }
