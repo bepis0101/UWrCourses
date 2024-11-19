@@ -9,8 +9,8 @@ namespace WebApplication1.Data
     {
         Task<List<BookModel>> GetAll();
         Task<BookModel>? Get(Guid id);
-        Task Add(Guid id, string title, string author, string isbn, int yearOfRelease);
-        Task Update(Guid id, string title, string author, string isbn, int yearOfRelease);
+        Task Add(BookModel model);
+        Task Update(BookModel model);
         Task Delete(Guid id);
     }
     public class DataRepository : IDataRepository
@@ -72,36 +72,36 @@ namespace WebApplication1.Data
             }
             return new BookModel();
         }
-        public async Task Add(Guid id, string title, string author, string isbn, int yearOfRelease)
+        public async Task Add(BookModel model)
         {
             using (var connection = _connection)
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand("INSERT INTO Books (ID, Title, Author, ISBN, YearOfRelease) VALUES (@Id, @Title, @Author, @ISBN, @YearOfRelease)", connection))
                 {
-                    command.Parameters.AddWithValue("@Id", id);
-                    command.Parameters.AddWithValue("@Title", title);
-                    command.Parameters.AddWithValue("@Author", author);
-                    command.Parameters.AddWithValue("@ISBN", isbn);
-                    command.Parameters.AddWithValue("@YearOfRelease", yearOfRelease);
+                    command.Parameters.AddWithValue("@Id", model.ID);
+                    command.Parameters.AddWithValue("@Title", model.Title);
+                    command.Parameters.AddWithValue("@Author", model.Author);
+                    command.Parameters.AddWithValue("@ISBN", model.ISBN);
+                    command.Parameters.AddWithValue("@YearOfRelease", model.YearOfRelease);
 
                     await command.ExecuteNonQueryAsync();
                 }
             }
         }
 
-        public async Task Update(Guid id, string title, string author, string isbn, int yearOfRelease)
+        public async Task Update(BookModel model)
         {
             using (var connection = _connection)
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand("UPDATE Books SET Title = @Title, Author = @Author, ISBN = @ISBN, YearOfRelease = @YearOfRelease WHERE ID = @Id", connection))
                 {
-                    command.Parameters.AddWithValue("@Id", id);
-                    command.Parameters.AddWithValue("@Title", title);
-                    command.Parameters.AddWithValue("@Author", author);
-                    command.Parameters.AddWithValue("@ISBN", isbn);
-                    command.Parameters.AddWithValue("@YearOfRelease", yearOfRelease);
+                    command.Parameters.AddWithValue("@Id", model.ID);
+                    command.Parameters.AddWithValue("@Title", model.Title);
+                    command.Parameters.AddWithValue("@Author", model.Author);
+                    command.Parameters.AddWithValue("@ISBN", model.ISBN);
+                    command.Parameters.AddWithValue("@YearOfRelease", model.YearOfRelease);
 
                     await command.ExecuteNonQueryAsync();
                 }

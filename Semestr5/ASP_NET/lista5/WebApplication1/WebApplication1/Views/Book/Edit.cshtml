@@ -1,0 +1,31 @@
+﻿@model WebApplication1.Models.BookModel
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        @using (var form = Html.BeginForm(FormMethod.Post))
+    {
+        <div>
+            @Html.LabelFor(m => m.Title)
+            @Html.TextBoxFor(m => m.Title)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Author)
+            @Html.TextBoxFor(m => m.Author)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ISBN)
+            @Html.TextBoxFor(m => m.ISBN)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.YearOfRelease)
+            @Html.TextBoxFor(m => m.YearOfRelease)
+        </div>
+        <div>
+            <button type="submit">Edit book</button>
+        </div>
+    }
+    </body>
+</html>

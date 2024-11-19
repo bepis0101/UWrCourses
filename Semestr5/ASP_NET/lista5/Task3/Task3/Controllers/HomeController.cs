@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Diagnostics;
 using System.Text;
 
 namespace Task3.Controllers
@@ -37,12 +35,8 @@ namespace Task3.Controllers
         <filesize>{fileSize}</filesize>
         <signature>{signature}</signature>
     </opis>";
-                this.Response.Clear();
-                this.Response.ContentType = "text/xml";
-              
+                this.Response.Clear();              
                 this.Response.Headers.Append("Content-Disposition", "attachment; filename=opis.xml");
-                //await this.Response.WriteAsync(xml);
-
                 return this.File(Encoding.UTF8.GetBytes(xml), "text/xml");
             }
             else

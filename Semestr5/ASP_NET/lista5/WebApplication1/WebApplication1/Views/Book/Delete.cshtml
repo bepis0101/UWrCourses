@@ -1,0 +1,20 @@
+﻿@model WebApplication1.Models.BookModel
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>
+            Are you sure?
+        </h1>
+        <div>
+            @using(var form = Html.BeginForm())
+            {
+                <button type="submit" class="btn btn-danger">Yes</button>
+            }
+            <a href="@Url.Action("Index", "Book")" class="btn btn-secondary">No</a>
+        </div>
+        
+    </body>
+</html>

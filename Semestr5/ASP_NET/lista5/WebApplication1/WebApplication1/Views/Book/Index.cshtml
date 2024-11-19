@@ -26,6 +26,12 @@
             th {
                 background-color: #f2f2f2;
             }
+            .action-buttons {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+            } 
+
         </style>
     </head>
     <body>
@@ -37,6 +43,7 @@
                     <th>Author</th>
                     <th>ISBN</th>
                     <th>Year</th>
+                    <th>Action buttons</th>
                 </tr>
 
                 @for (int i = 0 ; i < books.Count; i++)
@@ -46,6 +53,12 @@
                         <td>@books[i].Author</td>
                         <td>@books[i].ISBN</td>
                         <td>@books[i].YearOfRelease</td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="@Url.Action("Edit", "Book", new { id = books[i].ID })">Edit</a>
+                                <a href="@Url.Action("Delete", "Book", new { id = books[i].ID })">Delete</a>
+                            </div>
+                        </td>
                     </tr>
                 }
             </table>

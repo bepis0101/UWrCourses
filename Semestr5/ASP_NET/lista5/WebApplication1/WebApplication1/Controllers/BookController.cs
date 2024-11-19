@@ -24,12 +24,13 @@ namespace WebApplication1.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Add(BookModel book)
+        public async Task<IActionResult> Add(BookModel book)
         {
             if(ModelState.IsValid)
             {
                 Guid guid = Guid.NewGuid();
-                _dataRepository.Add(guid, book.Title, book.Author, book.ISBN, book.YearOfRelease);
+                book.ID = guid;
+                await _dataRepository.Add(book);
                 return RedirectToAction("Index");
             }
             else
@@ -37,6 +38,46 @@ namespace WebApplication1.Controllers
                 return View(book);
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var model = await _dataRepository.Get(id);
+            if( model != null )
+            {
+                return View(model);
+            }
+            return View(new BookModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(BookModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _dataRepository.Update(model);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var model = await _dataRepository.Get(id);
+            if (model != null)
+            {
+                return View(model);
+            }
+            return View(new BookModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(BookModel model)
+        {
+            await _dataRepository.Delete(model.ID);
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
