@@ -31,7 +31,7 @@ namespace WebApplication1
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);  
             HttpContext.Current.Application["Counter"] = 0;
         }
 

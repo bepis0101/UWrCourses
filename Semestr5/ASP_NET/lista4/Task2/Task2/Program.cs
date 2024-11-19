@@ -15,21 +15,20 @@ namespace Task2
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
-            builder.Services.AddSingleton<EndpointSelector, CustomEndpointSelector>();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            //builder.Services.AddControllers();
+            //builder.Services.AddSingleton<EndpointSelector, CustomEndpointSelector>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            app.UseRouting();
-            
-            app.MapGet("/{param}", (string param) => 
+            //app.UseRouting();
+
+            app.MapGet("/{param}", (string param) =>
             {
                 return Results.Ok($"You requested param: {param}");
             });
 
             // parametr z ograniczeniem typu
-            app.MapGet("/{id:int}", (int id) => 
+            app.MapGet("/{id:int}", (int id) =>
             {
                 return Results.Ok($"You requested id: {id} of type int");
             });
@@ -44,9 +43,9 @@ namespace Task2
                 return Results.Ok($"You requested param: {param} (param was required)");
             });
             // parametr z ograniczeniem regex
-            app.MapGet("regex/{param:regex(^[A-Za-z]+$)}", (string param) =>
+            app.MapGet("/regex/{param:regex(^[A-Z]*$)}", (string param) =>
             {
-                Results.Ok($"You requested param: {param} matching regex");
+                return Results.Ok($"You requested param: {param} matching regex");
             });
 
             app.MapGet("conflict/{param:string}", (string param) =>
@@ -58,11 +57,11 @@ namespace Task2
                 return Results.Ok($"You requested param: {param} of type string and length 5-10");
             });
 
-            
-            app.UseEndpoints((endpoints) =>
-            {
 
-            });
+            //app.UseEndpoints((endpoints) =>
+            //{
+
+            //});
 
 
 

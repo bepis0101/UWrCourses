@@ -1,0 +1,59 @@
+﻿@model Task2.Models.HomeModel
+@{
+    ViewBag.Title = "Deklaracja";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (@Html.BeginForm())
+        {
+            <div class="item">
+                <label>Imię: </label>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div class="item">
+                <label>Nazwisko: </label>
+                @Html.TextBoxFor(m => m.Surname)
+                @Html.ValidationMessageFor(m => m.Surname)
+            </div>
+
+            <div class="item">
+                <label>Data: </label>
+                @Html.TextBoxFor(m => m.Date, new { type = "date" })
+                @Html.ValidationMessageFor(m => m.Date)
+            </div>
+
+            <div class="item">
+                <label>Nazwa zajęć: </label>
+                @Html.TextBoxFor(m => m.NameOfCourse)
+                @Html.ValidationMessageFor(m => m.NameOfCourse)
+            </div>
+
+            <div class="item">
+                <label>Numer listy: </label>
+                @Html.TextBoxFor(m => m.ListNumber)
+                @Html.ValidationMessageFor(m => m.ListNumber)
+            </div>
+            <div class="item" id="Tasks">
+                @for (int i = 0; i < Model.TaskPoints.Count; i++)
+                {
+                    <label>Zadanie @(i + 1)</label>
+                    @Html.TextBoxFor(m => m.TaskPoints[i], new { type = "number", min = "0", max = "15" })
+                    @Html.ValidationMessageFor(m => m.TaskPoints[i])
+                }
+            </div>
+            <button type="submit">Wyślij</button>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication1.Models.BookModel>
+
+@{
+    ViewBag.Title = "All books";
+    var books = Model.ToList();
+}
+
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            @Html.ActionLink("Create new book", "Add", "Book")
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Year</th>
+                </tr>
+
+                @for (int i = 0 ; i < books.Count; i++)
+                {
+                    <tr>
+                        <td>@books[i].Title</td>
+                        <td>@books[i].Author</td>
+                        <td>@books[i].ISBN</td>
+                        <td>@books[i].YearOfRelease</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>

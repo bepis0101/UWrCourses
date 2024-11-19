@@ -1,0 +1,47 @@
+﻿@model Task2.Models.HomeModel
+
+@{
+    ViewBag.Title = "Print";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Print</title>
+</head>
+<body>
+    <div>
+        <table border="1" style="border-collapse: collapse; width: 100%;">
+            <tr>
+                <th>Imię i nazwisko</th>
+                <td>@Model.Name @Model.Surname</td>
+                <th>Data</th>
+                <td>@Model.Date.ToShortDateString()</td>
+                <th>Nazwa zajęć</th>
+                <td>@Model.NameOfCourse</td>
+                <th>Numer zestawu</th>
+                <td>@Model.ListNumber</td>
+            </tr>
+
+            <tr>
+                <th colspan="8">Wyniki zadań</th>
+            </tr>
+            <tr>
+                @for (int i = 0; i < Model.TaskPoints.Count; i++)
+                {
+                    <td>Zadanie @(i + 1)</td>
+                }
+            </tr>
+            <tr>
+                @for (int i = 0; i < Model.TaskPoints.Count; i++)
+                {
+                    <td>@Model.TaskPoints[i]</td>
+                }
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

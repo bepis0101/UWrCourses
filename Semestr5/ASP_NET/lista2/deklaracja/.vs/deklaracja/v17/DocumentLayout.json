@@ -38,7 +38,8 @@
               "RelativeToolTip": "deklaracja\\print.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-21T19:57:01.697Z"
+              "WhenOpened": "2024-10-21T19:57:01.697Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,7 +49,7 @@
               "RelativeDocumentMoniker": "deklaracja\\zgloszenie.aspx.cs",
               "ToolTip": "C:\\Users\\borys\\Desktop\\UWr\\Semestr5\\ASP_NET\\lista2\\deklaracja\\deklaracja\\zgloszenie.aspx.cs",
               "RelativeToolTip": "deklaracja\\zgloszenie.aspx.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T18:36:13.488Z",
               "EditorCaption": ""
@@ -63,7 +64,8 @@
               "RelativeToolTip": "deklaracja\\zgloszenie.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-21T18:35:04.263Z"
+              "WhenOpened": "2024-10-21T18:35:04.263Z",
+              "EditorCaption": ""
             }
           ]
         }
