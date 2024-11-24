@@ -1,0 +1,23 @@
+﻿@model LoginVariants.Models.LoginModel;
+@using LoginVariants.Models;
+
+@section customstyles {
+    <style>
+       div {
+           color: red;
+       }
+    </style>
+}
+
+<div>
+    @using(Html.BeginForm("Index", "LogOn", FormMethod.Post))
+    {
+        <div style="display: flex; flex-direction: column; width: 100px;">
+            @Html.LoginFor(m => m.Username, m => m.Password)
+            @Html.LabelFor(m => m.Pesel)
+            @Html.TextBoxFor(m => m.Pesel)
+            @Html.ValidationMessageFor(m => m.Pesel)
+            <button type="submit">Login</button>
+        </div>
+    }
+</div>

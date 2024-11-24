@@ -1,0 +1,11 @@
+﻿@{
+    var rand = new Random();
+    if(rand.Next(2) < 1)
+    {
+        Layout = "_basicLayout";
+    }
+    else
+    {
+        Layout = "_layout";
+    }
+}
