@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
@@ -9,7 +10,7 @@ namespace LoginVariants.Models
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        [PeselAttribute]
+        [Pesel]
         public string Pesel { get; set; }
     }
     public static class CustomHtmlHelpers

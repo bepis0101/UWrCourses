@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Options;
+using System.Text;
 
 namespace Task4Core
 {
@@ -25,12 +26,9 @@ namespace Task4Core
 
             var appSettings = app.Services.GetRequiredService<IOptions<AppSettings>>().Value;
 
-            app.MapGet("/", () =>
+            app.MapGet("/", (HttpContext context) =>
             {
-                Results.Ok($"Title Json: {titleJson}\n" +
-                    $"Title XML: {titleXml}\n" +
-                    $"Version JSON: {versionJson}"
-                    );
+                context.Response.BodyWriter.WriteAsync(Encoding.UTF8.GetBytes($"AppTitle: {appSettings.AppTitle} AppVersion: {appSettings.AppVersion}"));
             });
 
             app.Run();

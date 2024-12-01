@@ -16,13 +16,13 @@ namespace Task2
             // Add services to the container.
 
             //builder.Services.AddControllers();
-            //builder.Services.AddSingleton<EndpointSelector, CustomEndpointSelector>();
+            builder.Services.AddSingleton<EndpointSelector, CustomEndpointSelector>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            //app.UseRouting();
+            app.UseRouting();
 
-            app.MapGet("/{param}", (string param) =>
+            app.MapGet("/{param:string}", (string param) =>
             {
                 return Results.Ok($"You requested param: {param}");
             });
