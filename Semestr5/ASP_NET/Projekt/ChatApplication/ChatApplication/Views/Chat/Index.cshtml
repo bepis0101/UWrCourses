@@ -1,0 +1,30 @@
+﻿@model List<User>
+@{
+    ViewData["title"] = "Chat";
+}
+
+<div class="container mt-3">
+    <h2>Search Users</h2>
+    <input class="form-control" id="searchBar" type="text" placeholder="Search..">
+    <ul class="list-group mt-3" id="userList">
+        @foreach (var user in Model)
+        {
+            <li class="list-group-item">
+                <a asp-action="Chat" asp-controller="Chat" asp-route-id="@user.Id">@user.Username</a>
+            </li>
+        }
+    </ul>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $("#searchBar").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#userList li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}
