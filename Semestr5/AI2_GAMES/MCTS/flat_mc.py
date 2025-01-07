@@ -178,6 +178,7 @@ class State:
     self.grid = deepcopy(grid_cp)
     self.cleanup()
 
+
   def play_opp(self):
     action = choice(['UP', 'RIGHT', 'DOWN', 'LEFT'])
     self.my_id, self.opp_id = self.opp_id, self.my_id

@@ -25,6 +25,14 @@ namespace ChatApplication.Services
                 .HasOne(m => m.Receiver)
                 .WithMany(u => u.MessagesReceived)
                 .HasForeignKey(m => m.ReceiverId);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.MessagesSent)
+                .WithOne(m => m.Sender)
+                .HasForeignKey(m => m.SenderId);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.MessagesReceived)
+                .WithOne(m => m.Receiver)
+                .HasForeignKey(m => m.ReceiverId);
         }
     }
 }

@@ -1,0 +1,55 @@
+﻿@model ChatModel
+@{
+    ViewData["Title"] = $"Chat with {Model.ReceiverUsername}";
+}
+
+<div class="container mt-3">
+    <h2>@ViewData["Title"]</h2>
+    <div id="chatBox" class="mt-3">
+        @foreach (var message in Model.Messages)
+        {
+            @if(message.Sender == User.Identity?.Name)
+            {
+                <div class="alert alert-primary">
+                    <strong>@message.Sender</strong>:
+                    @message.Content
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-secondary">
+                    <strong>@message.Sender</strong>:
+                    @message.Content
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div>
+    <form>
+        <input class="form-control mt-3" id="messageInput" type="text" placeholder="Type a message..">
+        <input type="hidden" id="receiver" value="@Model.ReceiverUsername" />
+        <button class="btn btn-primary mt-3" id="sendButton" type="submit">Send</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    <script>
+        let receiver = document.getElementById("receiver").value;
+        async function send(e) {
+            try {
+                await connection.invoke("SendMessage", receiver, document.getElementById("messageInput").value);
+                document.getElementById("messageInput").value = "";
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        document.getElementById("sendButton").onclick = (e) => {
+            e.preventDefault();
+            send(e);
+        }
+    </script>
+}

@@ -1,4 +1,5 @@
-﻿using ChatApplication.Models;
+﻿using Azure.Messaging;
+using ChatApplication.Models;
 using ChatApplication.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -25,13 +26,14 @@ namespace ChatApplication.Controllers
             return View(allUsers);
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> Chat(Guid Id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == Guid.Parse(userId));
             var receiver = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+
             if (user == null)
             {
                 return RedirectToAction("Index");
@@ -40,57 +42,53 @@ namespace ChatApplication.Controllers
             {
                 return RedirectToAction("Index");
             }
+            var messagesSent = await _context.Messages.Where(m => m.SenderId == user.Id && m.ReceiverId == receiver.Id).ToListAsync();
+            var messagesReceived = await _context.Messages.Where(m => m.SenderId == receiver.Id && m.ReceiverId == user.Id).ToListAsync();
 
 
-            var messages = mergeMessages(user.MessagesSent, user.MessagesReceived);
+
+            var messages = new ChatModel()
+            {
+                Messages = mergeMessages(messagesSent, messagesReceived),
+                ReceiverUsername = receiver.Username
+            };
 
             return View(messages);
 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Send(MessageModel model)
+        private List<MessageModel> mergeMessages(ICollection<Message> sent, ICollection<Message> received)
         {
-            if (!this.ModelState.IsValid)
-            {
-                return View("Index");
-            }
-
-            var receiver = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Receiver);
-            var sender = await _context.Users.FirstOrDefaultAsync(u => u.Username == User.Identity.Name);
-
-            var message = new Message()
-            {
-                MessageId = Guid.NewGuid(),
-                Content = model.Content,
-                TimeSent = DateTime.Now,
-                ReceiverId = receiver.Id,
-                SenderId = sender.Id,
-            };
-
-            _context.Messages.Add(message);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", receiver.Id);
-        }
-        private List<Message> mergeMessages(ICollection<Message> sent, ICollection<Message> received)
-        {
-            var messages = new List<Message>();
+            var messages = new List<MessageModel>();
             if (sent != null && sent.Any())
             {
                 foreach (var message in sent)
                 {
-                    messages.Add(message);
+                    messages.Add(new MessageModel()
+                    {
+                        Receiver = message.Receiver.Username,
+                        Sender = message.Sender.Username,
+                        Content = message.Content,
+                        Date = message.TimeSent
+                    });
                 }
             }
-            if( received != null && received.Any())
+            if(received != null && received.Any())
             {
                 foreach (var message in received)
                 {
-                    messages.Add(message);
+                    messages.Add(new MessageModel()
+                    {
+                        Receiver = message.Receiver.Username,
+                        Sender = message.Sender.Username,
+                        Content = message.Content,
+                        Date = message.TimeSent
+                    });
                 }
-
             }
-            return messages.OrderBy(m => m.TimeSent).ToList();
+            messages.Sort((x, y) => x.Date.CompareTo(y.Date));
+
+            return messages;
         }
     }
 }

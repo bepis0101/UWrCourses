@@ -6,11 +6,25 @@
 "use strict";
 let connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-connection.on("ReceiveMessage", (user, message) => {
-    let msg = document.createElement("div");
-    msg.textContent = `${user}: ${message}`;
-    document.getElementById("messagesList").appendChild(msg);
+connection.on("ReceiveMessage", function (user, message) {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "alert alert-primary";
+    messageDiv.innerHTML = `<strong>${user}:</strong> ${message}`;
+    document.getElementById("chatBox").appendChild(messageDiv);
 });
 
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR connected")
+    } catch (e) {
+        console.log(e);
+    }
+}
 
+connection.onclose(async () => {
+    await start();
+});
+
+start();
 

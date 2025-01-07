@@ -10,5 +10,7 @@ namespace ChatApplication.Models
         public string Sender { get; set; }
         [Required]
         public string Receiver { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
     }
 }
