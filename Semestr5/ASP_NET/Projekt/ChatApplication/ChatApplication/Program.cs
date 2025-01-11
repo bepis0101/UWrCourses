@@ -1,7 +1,8 @@
+using ChatApplication.Domain;
+using ChatApplication.Domain.Handler;
+using ChatApplication.Domain.Handlers;
 using ChatApplication.Hubs;
-using ChatApplication.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -14,29 +15,9 @@ namespace ChatApplication
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
-            var jwtIssuer = builder.Configuration["Jwt:Issuer"];
-            var jwtKey = builder.Configuration["Jwt:Key"];
-
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSignalR();
-            builder.Services
-                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = jwtIssuer,
-                        ValidAudience = jwtIssuer,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
-                    };
-                });
-
             builder.Services
                 .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
@@ -48,6 +29,17 @@ namespace ChatApplication
             builder.Services.AddDbContext<DbManager>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddMediatR(config =>
+            {
+                config.RegisterServicesFromAssemblies(
+                    typeof(ChatHandler).Assembly, 
+                    typeof(LoginHandler).Assembly,
+                    typeof(MessageHandler).Assembly,
+                    typeof(MessageSenderHandler).Assembly,
+                    typeof(SignUpHandler).Assembly,
+                    typeof(UserHandler).Assembly
+                    );
+            });
 
             var app = builder.Build();
 

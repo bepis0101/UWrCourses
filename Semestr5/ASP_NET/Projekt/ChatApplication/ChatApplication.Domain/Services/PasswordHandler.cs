@@ -1,7 +1,6 @@
 ﻿using BC = BCrypt.Net.BCrypt;
-using System.Dynamic;
 
-namespace ChatApplication.Services
+namespace ChatApplication.Domain.Services
 {
     public static class PasswordHandler
     {

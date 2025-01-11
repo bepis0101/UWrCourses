@@ -1,11 +1,13 @@
-﻿using Azure.Messaging;
-using ChatApplication.Models;
-using ChatApplication.Services;
+﻿using ChatApplication.Models;
+using ChatApplication.Domain;
+using ChatApplication.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using MediatR;
+using ChatApplication.Domain.Handler;
 
 namespace ChatApplication.Controllers
 {
@@ -13,16 +15,36 @@ namespace ChatApplication.Controllers
     public class ChatController : Controller
     {
 
-        private readonly DbManager _context;
-        public ChatController(DbManager context)
+        private readonly IMediator _mediator;
+        
+        public ChatController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var allUsers = _context.Users.ToList();
+            var Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var chatParameters = new ChatUseCaseParameters()
+            {
+                UserId = Guid.Parse(Id)
+            };
+            var result = await _mediator.Send(chatParameters);
+            if(result.Success == false)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var allUsers = new List<UserViewModel>();
+            foreach (var user in result.Chats)
+            {
+                allUsers.Add(new UserViewModel()
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Email = user.Email
+                });
+            }
             return View(allUsers);
         }
 
@@ -31,64 +53,36 @@ namespace ChatApplication.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == Guid.Parse(userId));
-            var receiver = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
-
-            if (user == null)
+            var messageParameters = new MessageUseCaseParameters()
             {
-                return RedirectToAction("Index");
-            }
-            if (receiver == null)
-            {
-                return RedirectToAction("Index");
-            }
-            var messagesSent = await _context.Messages.Where(m => m.SenderId == user.Id && m.ReceiverId == receiver.Id).ToListAsync();
-            var messagesReceived = await _context.Messages.Where(m => m.SenderId == receiver.Id && m.ReceiverId == user.Id).ToListAsync();
-
-
-
-            var messages = new ChatModel()
-            {
-                Messages = mergeMessages(messagesSent, messagesReceived),
-                ReceiverUsername = receiver.Username
+                SenderId = Guid.Parse(userId),
+                ReceiverId = Id
             };
 
-            return View(messages);
+            var result = await _mediator.Send(messageParameters);
+            if(result.Success == false)
+            {
+                return RedirectToAction("Index", "Chat");
+            }
+
+            return View(MergeMessages(result.Messages));
 
         }
 
-        private List<MessageModel> mergeMessages(ICollection<Message> sent, ICollection<Message> received)
+        private List<MessageModel> MergeMessages(List<Message> messages)
         {
-            var messages = new List<MessageModel>();
-            if (sent != null && sent.Any())
+            var messageModels = new List<MessageModel>();
+            foreach (var message in messages)
             {
-                foreach (var message in sent)
+                messageModels.Add(new MessageModel()
                 {
-                    messages.Add(new MessageModel()
-                    {
-                        Receiver = message.Receiver.Username,
-                        Sender = message.Sender.Username,
-                        Content = message.Content,
-                        Date = message.TimeSent
-                    });
-                }
+                    Content = message.Content,
+                    Date = message.TimeSent,
+                    Sender = message.Sender.Username,
+                    Receiver = message.Receiver.Username
+                });
             }
-            if(received != null && received.Any())
-            {
-                foreach (var message in received)
-                {
-                    messages.Add(new MessageModel()
-                    {
-                        Receiver = message.Receiver.Username,
-                        Sender = message.Sender.Username,
-                        Content = message.Content,
-                        Date = message.TimeSent
-                    });
-                }
-            }
-            messages.Sort((x, y) => x.Date.CompareTo(y.Date));
-
-            return messages;
+            return messageModels;
         }
     }
 }

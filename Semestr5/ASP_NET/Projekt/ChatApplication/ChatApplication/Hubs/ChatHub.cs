@@ -1,5 +1,6 @@
-﻿using ChatApplication.Models;
-using ChatApplication.Services;
+﻿using ChatApplication.Domain.Handlers;
+using ChatApplication.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
@@ -10,38 +11,37 @@ namespace ChatApplication.Hubs
     [Authorize]
     public class ChatHub : Hub
     {
-        private readonly DbManager _context;
+        private readonly IMediator _mediator;
 
-        public ChatHub(DbManager context)
+        public ChatHub(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
         public async Task SendMessage(string receiverUsername, string message)
         {
             var senderId = Context.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var sender = await _context.Users.FirstOrDefaultAsync(u => u.Id == Guid.Parse(senderId));
-            var receiver = await _context.Users.FirstOrDefaultAsync(u => u.Username == receiverUsername);
+            var sender = await _mediator.Send(new UserUseCaseParameters { Id = senderId });
+            var receiver = await _mediator.Send(new UserUseCaseParameters { Username = receiverUsername });
             
-            await Clients.User(receiver.Id.ToString()).SendAsync("ReceiveMessage", sender.Username, message);
-            await Clients.User(sender.Id.ToString()).SendAsync("ReceiveMessage", sender.Username, message);
-
-            if (sender != null && receiver != null)
+            if(!sender.Success || !receiver.Success)
             {
-                var newMessage = new Message
-                {
-                    MessageId = Guid.NewGuid(),
-                    Content = message,
-                    TimeSent = DateTime.Now,
-                    SenderId = sender.Id,
-                    ReceiverId = receiver.Id
-                };
-
-                _context.Messages.Add(newMessage);
-                await _context.SaveChangesAsync();
-
+                return;
             }
+
+            await Clients.User(receiver.FoundUser.Id.ToString()).SendAsync("ReceiveMessage", sender.FoundUser.Username, message);
+            await Clients.User(sender.FoundUser.Id.ToString()).SendAsync("ReceiveMessage", sender.FoundUser.Username, message);
+
+            await _mediator
+                .Send(new MessageSenderUseCaseParameters 
+                { 
+                    SenderId = sender.FoundUser.Id, 
+                    ReceiverId = receiver.FoundUser.Id, 
+                    Content = message 
+                });
+
+
         }
     }
 }

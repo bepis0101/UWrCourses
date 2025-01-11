@@ -1,22 +1,19 @@
 ﻿using ChatApplication.Models;
-using ChatApplication.Services;
+using ChatApplication.Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
+using ChatApplication.Domain.Handlers;
+using ChatApplication.Domain.Services;
 
 namespace ChatApplication.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly DbManager _context;
-        private readonly IConfiguration _configuration;
-        public AccountController(DbManager context, IConfiguration configuration)
+        private IMediator _mediator;
+        public AccountController(DbManager context, IMediator mediator)
         {
-            _context = context;
-            _configuration = configuration;
+            _mediator = mediator;
         }
         public IActionResult Login()
         {
@@ -30,36 +27,23 @@ namespace ChatApplication.Controllers
             {
                 return View(model);
             }
-            
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
-            
-            if(user == null)
+           
+            var loginParameters = new LoginUseCaseParameters()
             {
-                return View(model);
-            }
-
-            var password = await _context.Passwords.FirstOrDefaultAsync(p => p.UserId == user.Id);
-            
-            if(password == null)
-            {
-                return View(model);
-            }
-
-            if (!PasswordHandler.VerifyPassword(model.Password, password.PasswordHash))
-            {
-                return View(model);
-            }
-
-
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                Username = model.Username,
+                Password = model.Password
             };
 
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(identity);
+            var result = await _mediator.Send(loginParameters);
+            
+            if(result.Success == false)
+            {
+                return View(model);
+            }
+
+            var user = result.LoggedUser;
+            
+            var principal = PrincipalIssuer.IssuePrincipal(user);
 
             await HttpContext.SignInAsync(principal);
 
@@ -79,36 +63,20 @@ namespace ChatApplication.Controllers
                 return View(model);
             }
             
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
+            var signUpParameters = new SignUpUseCaseParameters()
+            {
+                Username = model.Username,
+                Password = model.Password,
+                ConfirmPassword = model.ConfirmPassword,
+                Email = model.Email
+            };
+            var result = await _mediator.Send(signUpParameters);
+
+            if(result.Success == false)
+            {
+                return View(model);
+            }
             
-            if(user != null)
-            {
-                return View(model);
-            }
-
-            if(model.Password != model.ConfirmPassword)
-            {
-                return View(model);
-            }
-
-            var newUser = new User()
-            {
-                Id = Guid.NewGuid(),
-                Email = model.Email,
-                Username = model.Username
-            };
-
-            var passwordHash = PasswordHandler.HashPassword(model.Password);
-
-            var newPassword = new Password()
-            {
-                UserId = newUser.Id,
-                PasswordHash = passwordHash
-            };
-
-            await _context.Users.AddAsync(newUser);
-            await _context.Passwords.AddAsync(newPassword);
-            await _context.SaveChangesAsync();
 
             return RedirectToAction("Login");
         }
