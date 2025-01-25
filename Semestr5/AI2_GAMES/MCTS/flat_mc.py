@@ -178,12 +178,7 @@ class State:
     self.grid = deepcopy(grid_cp)
     self.cleanup()
 
-
-  def play_opp(self):
-    action = choice(['UP', 'RIGHT', 'DOWN', 'LEFT'])
-    self.my_id, self.opp_id = self.opp_id, self.my_id
-    self.my_entities, self.opp_entities = self.opp_entities, self.my_entities
-    self.move(action)
+  def swap_players(self):
     self.my_id, self.opp_id = self.opp_id, self.my_id
     self.my_entities, self.opp_entities = self.opp_entities, self.my_entities
 
@@ -195,7 +190,7 @@ def sim(root, action):
   s = deepcopy(root)
   while not s.is_terminal():
     s.move(action)
-    s.play_opp()
+    s.swap_players()
     action = choice(['UP', 'RIGHT', 'DOWN', 'LEFT'])
   if s.my_entities == 0 and s.opp_entities == 0:
     return 50
@@ -226,9 +221,6 @@ def flat_mc(root):
       best_avg = avg
       best_action = action
   return best_action
-    
-    
-
 
 
 # # Try to survive by not falling off

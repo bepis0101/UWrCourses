@@ -32,7 +32,7 @@ namespace ChatApplication.Domain.Handlers
 
         public async Task<MessageSenderUseCaseResult> Handle(MessageSenderUseCaseParameters request, CancellationToken cancellationToken)
         {
-            if (request.Content.IsNullOrEmpty())
+            if (request.Content == null)
             {
                 return new MessageSenderUseCaseResult
                 {
@@ -45,11 +45,12 @@ namespace ChatApplication.Domain.Handlers
             {
                 SenderId = request.SenderId,
                 ReceiverId = request.ReceiverId,
-                Content = request.Content
+                Content = request.Content,
+                TimeSent = DateTime.Now
             };
 
             await _context.AddMessage(message);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return new MessageSenderUseCaseResult
             {

@@ -4,8 +4,6 @@ using ChatApplication.Domain.Handlers;
 using ChatApplication.Hubs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace ChatApplication
 {
@@ -32,13 +30,13 @@ namespace ChatApplication
             builder.Services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssemblies(
-                    typeof(ChatHandler).Assembly, 
+                    typeof(ChatHandler).Assembly,
                     typeof(LoginHandler).Assembly,
                     typeof(MessageHandler).Assembly,
                     typeof(MessageSenderHandler).Assembly,
                     typeof(SignUpHandler).Assembly,
                     typeof(UserHandler).Assembly
-                    );
+                );
             });
 
             var app = builder.Build();

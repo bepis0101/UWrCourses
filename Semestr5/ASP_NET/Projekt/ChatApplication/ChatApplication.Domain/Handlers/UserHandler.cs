@@ -32,16 +32,7 @@ namespace ChatApplication.Domain.Handlers
 
         public async Task<UserUseCaseResult> Handle(UserUseCaseParameters request, CancellationToken cancellationToken)
         {
-            if(request.Id.IsNullOrEmpty() && request.Username.IsNullOrEmpty())
-            {
-                return new UserUseCaseResult
-                {
-                    FoundUser = null,
-                    Success = false,
-                    ErrorMessage = "No search parameters provided"
-                };
-            }
-            if(request.Id.IsNullOrEmpty())
+            if(request.Id == null)
             {
                 var user = await _context.GetUser(request.Username);
                 if (user == null)
@@ -50,7 +41,7 @@ namespace ChatApplication.Domain.Handlers
                     {
                         FoundUser = null,
                         Success = false,
-                        ErrorMessage = "User not found"
+                        ErrorMessage = "Internal server error"
                     };
                 }
                 return new UserUseCaseResult
@@ -69,7 +60,7 @@ namespace ChatApplication.Domain.Handlers
                     {
                         FoundUser = null,
                         Success = false,
-                        ErrorMessage = "User not found"
+                        ErrorMessage = "Internal server error"
                     };
                 }
                 return new UserUseCaseResult

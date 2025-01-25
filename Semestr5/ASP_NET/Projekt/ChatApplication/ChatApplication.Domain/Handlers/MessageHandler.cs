@@ -18,7 +18,7 @@ namespace ChatApplication.Domain.Handler
     }
     public class MessageUseCaseResult
     {
-        public List<Message> Messages { get; set; }
+        public List<MessageViewModel> Messages { get; set; }
         public bool Success { get; set; }
         public string? ErrorMessage { get; set; }
     }
@@ -34,22 +34,50 @@ namespace ChatApplication.Domain.Handler
         {
             var receivedMessages = await _context.GetMessages(parameters.SenderId, parameters.ReceiverId);
             var sentMessages = await _context.GetMessages(parameters.ReceiverId, parameters.SenderId);
+
+            
+
             var messages = MessageService.mergeMessages(receivedMessages, sentMessages);
-            if (messages.IsNullOrEmpty())
+            if (messages.Count == 0)
             {
                 return new MessageUseCaseResult
                 {
-                    Messages = messages,
+                    Messages = await convertToViewModel(messages),
                     Success = false,
                     ErrorMessage = "No messages found"
                 };
             }
             return new MessageUseCaseResult
             {
-                Messages = messages,
+                Messages = await convertToViewModel(messages),
                 Success = true,
                 ErrorMessage = ""
             };
+        }
+        private async Task<List<MessageViewModel>> convertToViewModel(List<Message> messages)
+        {
+            var messageViewModels = new List<MessageViewModel>();
+            if(messages.Count == 0)
+            {
+                return messageViewModels;
+            }
+            else
+            {
+                foreach(var message in messages)
+                {
+                    var sender = await _context.GetUser(message.SenderId);
+                    var receiver = await _context.GetUser(message.ReceiverId);
+
+                    messageViewModels.Add(new MessageViewModel()
+                    {
+                        Content = message.Content,
+                        Date = message.TimeSent,
+                        Receiver = receiver.Username,
+                        Sender = sender.Username
+                    });
+                }
+            }
+            return messageViewModels;
         }
     }
 }

@@ -64,9 +64,8 @@ namespace ChatApplication.Domain
 
         public async Task<List<Message>?> GetMessages(Guid senderId, Guid receiverId)
         {
-            var sent = await Messages.Where(m => m.SenderId == senderId && m.ReceiverId == receiverId).ToListAsync();
-            var received = await Messages.Where(m => m.SenderId == receiverId && m.ReceiverId == senderId).ToListAsync();
-            return MessageService.mergeMessages(sent, received);
+            var messages = await Messages.Where(m => m.SenderId == senderId && m.ReceiverId == receiverId).ToListAsync();
+            return messages;
         }
 
         public async Task AddMessage(Message message)

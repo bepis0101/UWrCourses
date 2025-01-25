@@ -26,11 +26,14 @@ namespace ChatApplication.Controllers
         public async Task<IActionResult> Index()
         {
             var Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var chatParameters = new ChatUseCaseParameters()
             {
                 UserId = Guid.Parse(Id)
             };
+            
             var result = await _mediator.Send(chatParameters);
+            
             if(result.Success == false)
             {
                 return RedirectToAction("Index", "Home");
@@ -60,29 +63,16 @@ namespace ChatApplication.Controllers
             };
 
             var result = await _mediator.Send(messageParameters);
-            if(result.Success == false)
+            if (result.Success == false)
             {
                 return RedirectToAction("Index", "Chat");
             }
-
-            return View(MergeMessages(result.Messages));
-
-        }
-
-        private List<MessageModel> MergeMessages(List<Message> messages)
-        {
-            var messageModels = new List<MessageModel>();
-            foreach (var message in messages)
+            var chat = new ChatModel()
             {
-                messageModels.Add(new MessageModel()
-                {
-                    Content = message.Content,
-                    Date = message.TimeSent,
-                    Sender = message.Sender.Username,
-                    Receiver = message.Receiver.Username
-                });
-            }
-            return messageModels;
+                Messages = result.Messages,
+                ReceiverUsername = result.Messages[0].Receiver ?? ""
+            };
+            return View(chat);
         }
     }
 }

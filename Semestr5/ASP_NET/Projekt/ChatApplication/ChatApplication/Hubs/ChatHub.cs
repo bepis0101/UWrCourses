@@ -33,15 +33,13 @@ namespace ChatApplication.Hubs
             await Clients.User(receiver.FoundUser.Id.ToString()).SendAsync("ReceiveMessage", sender.FoundUser.Username, message);
             await Clients.User(sender.FoundUser.Id.ToString()).SendAsync("ReceiveMessage", sender.FoundUser.Username, message);
 
-            await _mediator
+            var sentMessage = await _mediator
                 .Send(new MessageSenderUseCaseParameters 
                 { 
                     SenderId = sender.FoundUser.Id, 
                     ReceiverId = receiver.FoundUser.Id, 
-                    Content = message 
+                    Content = message
                 });
-
-
         }
     }
 }

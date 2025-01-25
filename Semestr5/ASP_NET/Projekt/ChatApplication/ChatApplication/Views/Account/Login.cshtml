@@ -26,3 +26,27 @@
         </div>
     </div>
 </div>
+
+<div class="toast-container position-fixed end-0 bottom-0 p-3">
+    @foreach(var error in Model.Errors)
+    {
+        <div class="toast" role="alert" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Error</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @error
+            </div>
+        </div>
+    }
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.show());
+    });
+</script>

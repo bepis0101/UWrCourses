@@ -1,8 +1,10 @@
-﻿namespace ChatApplication.Models
+﻿using ChatApplication.Domain.Models;
+
+namespace ChatApplication.Models
 {
-    public class ChatModel
+    public class ChatModel : ErrorModel
     {
-        public List<MessageModel> Messages { get; set; }
+        public List<MessageViewModel> Messages { get; set; }
         public string ReceiverUsername { get; set; }
     }
 }

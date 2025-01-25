@@ -1,6 +1,6 @@
 ﻿namespace ChatApplication.Models
 {
-    public class UserViewModel
+    public class UserViewModel : ErrorModel
     {
         public Guid Id { get; set; }
         public string Username { get; set; }

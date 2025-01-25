@@ -2,7 +2,7 @@
 
 namespace ChatApplication.Models
 {
-    public class MessageModel
+    public class MessageModel : ErrorModel
     {
         [Required]
         public string Content { get; set; }

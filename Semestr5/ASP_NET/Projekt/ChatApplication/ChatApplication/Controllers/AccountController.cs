@@ -17,7 +17,11 @@ namespace ChatApplication.Controllers
         }
         public IActionResult Login()
         {
-            return View();
+            var model = new AccountLoginModel()
+            {
+                Errors = new List<string>()
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -25,6 +29,7 @@ namespace ChatApplication.Controllers
         {
             if(!this.ModelState.IsValid)
             {
+                model.Errors.Add("Invalid input");
                 return View(model);
             }
            
@@ -38,6 +43,7 @@ namespace ChatApplication.Controllers
             
             if(result.Success == false)
             {
+                model.Errors.Add(result.ErrorMessage);
                 return View(model);
             }
 
@@ -52,7 +58,11 @@ namespace ChatApplication.Controllers
 
         public IActionResult Signup()
         {
-            return View();
+            var model = new AccountSignupModel()
+            {
+                Errors = new List<string>()
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -74,6 +84,7 @@ namespace ChatApplication.Controllers
 
             if(result.Success == false)
             {
+                model.Errors.Add(result.ErrorMessage);
                 return View(model);
             }
             
