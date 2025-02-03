@@ -298,8 +298,8 @@ class MCTS {
 public:
     int my_id;
     double exploration_constant;
-    vector<Node> node_pool; // Static storage for all nodes
-    int node_count;         // Tracks the number of nodes created
+    vector<Node> node_pool; 
+    int node_count;
 
     MCTS(char my_id, int max_nodes = 10000, double exploration_constant = 1.414)
         : my_id(my_id), exploration_constant(exploration_constant), node_pool(max_nodes), node_count(0) {}
