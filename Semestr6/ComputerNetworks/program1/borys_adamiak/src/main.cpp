@@ -92,15 +92,26 @@ int main(int argc, char** argv) {
         const ssize_t ip_header_len = 4 * (ssize_t)(ip_header->ip_hl);
         icmp* icmp_packet = (icmp*)(buffer+ip_header_len);
         icmp* icmp_original = (icmp*)(buffer+ip_header_len+sizeof(icmp));
-        if((icmp_packet->icmp_type == ICMP_TIME_EXCEEDED || 
-          icmp_packet->icmp_type == ICMP_ECHOREPLY)) {
+        if(icmp_packet->icmp_type == ICMP_TIME_EXCEEDED && 
+          icmp_original->icmp_hun.ih_idseq.icd_id == getpid() &&
+          icmp_original->icmp_hun.ih_idseq.icd_seq >= (ttl-1)*3 &&
+          icmp_original->icmp_hun.ih_idseq.icd_seq <= (ttl-1)*3 + 2) {
           rtt += (double)(timer.now_precise() - packet_send_time[icmp_original->icmp_hun.ih_idseq.icd_seq]);
           responses++;
           char sender_ip[INET_ADDRSTRLEN];
           inet_ntop(AF_INET, &(sender.sin_addr), sender_ip, sizeof(sender_ip));
           ips.insert(sender_ip);
-          is_destination = (icmp_packet->icmp_type == ICMP_ECHOREPLY);
-        } else {
+        } else if(icmp_packet->icmp_type == ICMP_ECHOREPLY &&
+          icmp_packet->icmp_hun.ih_idseq.icd_id == getpid() &&
+          icmp_packet->icmp_hun.ih_idseq.icd_seq >= (ttl-1)*3 &&
+          icmp_packet->icmp_hun.ih_idseq.icd_seq <= (ttl-1)*3 + 2) {
+            rtt += (double)(timer.now_precise() - packet_send_time[icmp_original->icmp_hun.ih_idseq.icd_seq]);
+            responses++;
+            char sender_ip[INET_ADDRSTRLEN];
+            inet_ntop(AF_INET, &(sender.sin_addr), sender_ip, sizeof(sender_ip));
+            ips.insert(sender_ip);
+            is_destination = true;
+          } else {
           continue;
         }
       }

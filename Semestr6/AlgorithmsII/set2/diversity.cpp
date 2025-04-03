@@ -58,9 +58,6 @@ int main() {
   for(int i = 0; i < m; i++) {
     int a, b; cin >> a >> b;
     int node = dsu.unionn(a, b);
-    // cerr << "edges: " << dsu.edges[node] << '\n';
-    // cerr << "maks_node: " << dsu.maksmin[node].second << '\n';
-    // cerr << "min_node: " << dsu.maksmin[node].first << '\n';
     long long res = dsu.edges[node] * (dsu.maksmin[node].second - dsu.maksmin[node].first);
     cout << res << '\n';
   }
