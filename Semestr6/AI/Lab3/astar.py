@@ -64,7 +64,7 @@ def bfs_goal_distances(goal_positions, board, rows, cols):
   
   return goal_distance
 
-def heuristic(positions, goal_distance, alpha=1):
+def heuristic(positions, goal_distance, alpha=0.98):
   return max(goal_distance[y][x] for y, x in positions) / alpha
 
 def a_star(starting_positions, goal_positions, board, rows, cols):
