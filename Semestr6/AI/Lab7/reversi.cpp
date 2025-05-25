@@ -24,6 +24,7 @@ class State {
   int board[L][L];
   
   State() {
+    myColor = color = WHITE;
     for(int i = 0; i < L; i++) {
       for(int j = 0; j < L; j++) {
         board[i][j] = 0;
@@ -49,7 +50,9 @@ class State {
   // -1 or 1 if win 0 if is not end 5 if draw
   int isEnd() {
     int blacks = 0, whites = 0;
-    if(generateMoves(WHITE).empty() || generateMoves(BLACK).empty()) {
+    bool whiteEmpty = generateMoves(WHITE).empty();
+    bool blackEmpty = generateMoves(BLACK).empty();
+    if (!whiteEmpty || !blackEmpty) { // At least one can move
       return 0;
     }
     for(int y = 0; y < L; y++) {
@@ -68,44 +71,50 @@ class State {
   }
   
   bool makeMove(int color, int x, int y) {
-    bool success = false;
+    if(board[y][x] != 0) return false;
+    vector<pair<int, int>> validDirs;
     for(auto dir : directions) {
+      if(isCorrect(color, x, y, dir)) validDirs.push_back(dir);
+    }
+    if(validDirs.empty()) return false;
+    
+    board[y][x] = color; // Place stone first
+    for(auto dir : validDirs) {
       auto [dx, dy] = dir;
-      int nx = x + dx; 
-      int ny = y + dy;
-      if(isCorrect(color, x, y, dir)) {
-        while(nx > 0 && nx < 8 && ny > 0 && ny < 8) {
-          if(board[ny][nx] == color) break;
-          if(board[ny][nx] == -color) board[ny][nx] = color;
-          nx += dx, ny += dy;
-        }
-        success = true;
+      int nx = x + dx, ny = y + dy;
+      while (nx >= 0 && nx < L && ny >= 0 && ny < L && board[ny][nx] == -color) {
+        board[ny][nx] = color;
+        nx += dx; ny += dy;
       }
     }
-    if(success) board[y][x] = color;
-    return success;
-  }
+    return true;
+}
   
   vector<pair<int, int>> generateMoves(int color) {
-    vector<pair<int, int>> res;
-    for(int y = 0; y < L; y++) {
-      for(int x = 0; x < L; x++) {
-        for(auto dir : directions) {
-          if(isCorrect(color, x, y, dir)) {
-            res.push_back({x, y});
+    set<pair<int, int>> movesSet;
+    for (int y = 0; y < L; y++) {
+      for (int x = 0; x < L; x++) {
+        if (board[y][x] != 0) continue;
+        for (auto dir : directions) {
+          if (isCorrect(color, x, y, dir)) {
+            movesSet.insert({x, y});
+            break; // Add once per cell
           }
         }
       }
     }
-    return res;
-  }
+    return vector<pair<int, int>>(movesSet.begin(), movesSet.end());
+}
   
   bool isCorrect(int color, int x, int y, pair<int, int> dir) {
     if(board[y][x] != 0) return false;
     auto [dx, dy] = dir;
     int nx = x + dx, ny = y + dy;
     if(nx < 0 || ny < 0 || nx >= L || ny >= L || board[ny][nx] != -color) return false;
-    while(nx > 0 && nx < 8 && ny > 0 && ny < 8) {
+    while(nx >= 0 && nx < L && ny >= 0 && ny < L) {
+      if(board[ny][nx] == 0) {
+        return false;
+      }
       if(board[ny][nx] == color) {
         return true;
       }
@@ -129,12 +138,14 @@ class State {
   }
 };
 
+// ... [The rest of the code remains unchanged] ...
+
 void printMoves(State& s) {
   auto moves = s.generateMoves(s.myColor);
   for(auto move : moves) {
-    cout << "{" << move.first << ", " << move.second << "}, ";
+    cerr << "{" << move.first << ", " << move.second << "}, ";
   }
-  cout << "\n";
+  cerr << "\n";
 }
 
 void printMoves(vector<pair<int, int>> moves) {
@@ -211,7 +222,6 @@ public:
 
   pair<int, int> findBestMove(State& s, int depth) {
     vector<pair<int, int>> moves = s.generateMoves(s.color);
-    printMoves(moves);
     int bestScore = INT_MIN;
     pair<int, int> bestMove = {-1, -1};
 
@@ -230,15 +240,15 @@ public:
 };
 
 int main() {
+  bool start = false;
   State s;
-  s.myColor = s.color = WHITE;
   Agent a;
   double t0, t1;
   cout << "RDY\n";
   fflush(stdout);
   while(true) {
     string inp; cin >> inp;
-    if(inp == "BYE") break;
+    if(inp == "BYE") return 0;
     else if(inp == "UGO") {
       cin >> t0 >> t1;
       s.myColor = s.color = BLACK;
@@ -247,6 +257,7 @@ int main() {
       fflush(stdout);
       s.makeMove(s.myColor, x, y);
       s.changeColor();
+      start = true;
     } else if(inp == "HEDID") {
       int x, y;
       cin >> t0 >> t1 >> x >> y;
@@ -257,11 +268,11 @@ int main() {
       cout << "IDO " << x << " " << y << "\n";
       fflush(stdout);
       s.makeMove(s.myColor, x, y);
+      s.changeColor();
     } else if(inp == "ONEMORE") {
+      s = State();
       cout << "RDY\n";
       fflush(stdout);
-      s = State();
-      s.myColor = WHITE;
     }
   }
   return 0;
