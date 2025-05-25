@@ -1,0 +1,12 @@
+﻿<Classes>
+	<Class name="Person">
+		<Field name="FirstName" type="string"/>
+		<Field name="LastName" type="string"/>
+		<Field name="Age" type="int"/>
+	</Class>
+	<Class name="Product">
+		<Field name="Name" type="string"/>
+		<Field name="Price" type="decimal"/>
+		<Field name="InStock" type="bool"/>
+	</Class>
+</Classes>
