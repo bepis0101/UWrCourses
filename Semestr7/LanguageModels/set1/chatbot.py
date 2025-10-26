@@ -76,10 +76,11 @@ while True:
         pad_token_id=tokenizer.eos_token_id,
         do_sample=True,
         top_p=0.9,
-        top_k=40,
+        top_k=20,
         temperature=0.8,
         num_return_sequences=3,
-        max_new_tokens=60
+        max_new_tokens=60,
+        repetition_penalty=1.2
     )
     # Wybieramy najlepszą
     cleaned = [clean_response(r["generated_text"][len(prompt):]) for r in responses]
