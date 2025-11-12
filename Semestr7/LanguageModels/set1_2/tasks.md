@@ -6,7 +6,6 @@
 3. ![alt text](image-3.png) ✅
 4. ![alt text](image-4.png) ✅
 5. ![alt text](image-5.png) ✅
-
 # zad 3
 
 Dla długich tekstów taki znak wodny mógłby pozostć niezauważony przy normalny rozkładzie tekstu jednak w przypadku krótiego tekstu słowa na C, S i K mogą wcale się nie pojawić przez co uzycie znaku wodnego traci sens
@@ -28,9 +27,11 @@ Konkluzje: nie uzywac gpt 2
 rasizm, seksizm
 # zad 7
 
+
+
 # zad 8
 
-### Scenariusz 1 – Model „kaskadowy” 
+### Scenariusz 1 – Model „kaskadowy"
 
 **Opis:** Jeden model generuje wstępny szkic tekstu, a drugi model go dopracowuje lub przetwarza dalej.
 
@@ -52,3 +53,4 @@ Mechanizm wyboru np. scoringu, głosowania lub klasyfikatora wybiera najlepiej d
 **Proces:** Model A tokenizuje prompt generuje token i zwraca odpowiedz w formie tekstu. Model B przyjmuje tekst z modelu A i robi to samo co model A tylko innym tokenizatorem
 
 # zad 9
+Zamiast generować całe $N$-wyrazowe zdania i dopiero potem je oceniać, będziemy budować zdania słowo po słowie. Na każdym kroku będziemy śledzić tylko $K$ najbardziej obiecujących (najbardziej prawdopodobnych) fragmentów zdań.
