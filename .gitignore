@@ -405,3 +405,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /Semestr5/ASP_NET/lista2/deklaracja/.vs
+
+# Rust / Cargo
+target/
+**/*.rs.bk
+*.profraw

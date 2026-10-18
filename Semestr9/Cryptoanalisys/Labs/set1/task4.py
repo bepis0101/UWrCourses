@@ -62,13 +62,16 @@ def best_shift(col, freq):
     return min(range(26), key=chi)
 
 results = []
+key = ''
 
 for col in columns:
     shift = best_shift(col, english)
+    key += alphabet[shift]
     decoded_col = ''.join(chr((ord(c) - ord('A') - shift) % len(alphabet) + ord('A')) for c in col)
     results.append(decoded_col)
 
 plaintext = [''] * len(text2)
 for i, decoded_col in enumerate(results):
     plaintext[i::3] = decoded_col
+print(f"key: {key}")
 print(''.join(plaintext))
