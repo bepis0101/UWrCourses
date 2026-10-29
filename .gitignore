@@ -410,3 +410,6 @@ FodyWeavers.xsd
 target/
 **/*.rs.bk
 *.profraw
+
+
+.DS_STORE

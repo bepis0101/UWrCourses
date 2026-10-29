@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """AES-128: CTR z powtórzonym IV (atak jak na two-time pad), plastyczność CTR, ECB vs CBC.
 
 Wejście:  obraz1.rgba, obraz2.rgba (256x256, RGBA, bez metadanych)
@@ -16,8 +15,8 @@ P1 = open("obraz1.rgba", "rb").read()
 P2 = open("obraz2.rgba", "rb").read()
 assert len(P1) == len(P2) == N
 
-KEY = os.urandom(16)     # klucz znany tylko "nadawcy"
-IV = os.urandom(16)      # ten sam initial vector
+KEY = os.urandom(16)
+IV = os.urandom(16)
 
 
 def xor(a, b):
